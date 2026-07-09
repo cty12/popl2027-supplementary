@@ -2,6 +2,11 @@
 ##    Supplementary Material of LambdaAlphaRefStar     ##
 #########################################################
 
+The supplementary material consists of four parts: the Appendix, the Agda proof
+scripts, a prototype implementation of LambdaAlphaRefStar (and its static
+sister), and example programs of LambdaAlphaRefStar (and its static sister). We
+describe each of them below.
+
 I. The Appendix that supplements the main text of the paper is `Appendix.pdf`.
 
 II. The mechanized proofs of LambdaAlphaRefStar are in the `Theories/`
