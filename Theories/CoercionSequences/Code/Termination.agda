@@ -1,4 +1,4 @@
-module LambdaAlphaRefStar.Theories.CoercionSequences.Code.Termination where
+module Theories.CoercionSequences.Code.Termination where
 
 open import Data.List using ([]; _++_)
 open import Data.Nat using (ℕ; zero; suc; _+_; _<_; z≤n; s≤s)
@@ -10,10 +10,10 @@ open import Data.Product using (_×_; ∃-syntax) renaming (_,_ to ⟨_,_⟩)
 open import Induction.WellFounded using (Acc; acc)
 open import Relation.Binary.PropositionalEquality using (_≡_; refl; sym; subst)
 
-open import LambdaAlphaRefStar.Theories.CoercionSequences.Code.Definition
-open import LambdaAlphaRefStar.Theories.CoercionSequences.Code.Progress
+open import Theories.CoercionSequences.Code.Definition
+open import Theories.CoercionSequences.Code.Progress
   using (Progress; progress)
-open import LambdaAlphaRefStar.Theories.CoercionSequences.Code.Preservation
+open import Theories.CoercionSequences.Code.Preservation
   using (preserve)
 
 

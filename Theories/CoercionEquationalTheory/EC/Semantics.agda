@@ -1,8 +1,8 @@
-module LambdaAlphaRefStar.Theories.CoercionEquationalTheory.EC.Semantics where
+module Theories.CoercionEquationalTheory.EC.Semantics where
 
 open import Relation.Nullary using (¬_)
 
-open import LambdaAlphaRefStar.Theories.CoercionEquationalTheory.EC.SyntaxAndTyping
+open import Theories.CoercionEquationalTheory.EC.SyntaxAndTyping
 
 
 -- | Frames for EC coercion reduction

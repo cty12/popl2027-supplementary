@@ -1,11 +1,11 @@
-module LambdaAlphaRefStar.Theories.ErrorFree where
+module Theories.ErrorFree where
 
 open import Data.List.Relation.Unary.All using (All)
 
-open import LambdaAlphaRefStar.Theories.CCAlphaRefStarSyntaxAndTypeSystem
-import LambdaAlphaRefStar.Theories.CoercionSequences.EC.Definition as EC
-import LambdaAlphaRefStar.Theories.CoercionSequences.Code.Definition as OC
-import LambdaAlphaRefStar.Theories.CoercionSequences.Meta.Definition as MC
+open import Theories.CCAlphaRefStarSyntaxAndTypeSystem
+import Theories.CoercionSequences.EC.Definition as EC
+import Theories.CoercionSequences.Code.Definition as OC
+import Theories.CoercionSequences.Meta.Definition as MC
 
 
 data ErrorFreeECSingle : EC.ECSingleCoercion → Set where

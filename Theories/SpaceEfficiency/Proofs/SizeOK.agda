@@ -1,4 +1,4 @@
-module LambdaAlphaRefStar.Theories.SpaceEfficiency.Proofs.SizeOK where
+module Theories.SpaceEfficiency.Proofs.SizeOK where
 
 open import Data.Bool using (Bool)
 open import Data.List using ([]; _∷_)
@@ -11,9 +11,9 @@ open import Relation.Binary.PropositionalEquality using (refl; sym)
 
 open Data.Nat.Properties.≤-Reasoning
 
-open import LambdaAlphaRefStar.Theories.SpaceEfficiency.CCAlphaRefStarSyntaxAndTypeSystem hiding (size)
-open import LambdaAlphaRefStar.Theories.SpaceEfficiency.CCAlphaRefStarSizeAndHeight
-open import LambdaAlphaRefStar.Theories.SpaceEfficiency.Proofs.PreserveOK
+open import Theories.SpaceEfficiency.CCAlphaRefStarSyntaxAndTypeSystem hiding (size)
+open import Theories.SpaceEfficiency.CCAlphaRefStarSizeAndHeight
+open import Theories.SpaceEfficiency.Proofs.PreserveOK
 
 
 adj-casts-≤3 : ∀ {M n delayed}

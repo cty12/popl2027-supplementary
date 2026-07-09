@@ -1,4 +1,4 @@
-module LambdaAlphaRefStar.Theories.Reify where
+module Theories.Reify where
 
 open import Data.List using (List; []; _∷_)
 open import Data.Maybe using (Maybe; just; nothing; _>>=_)
@@ -6,12 +6,12 @@ open import Data.Nat using (zero; suc)
 open import Data.Product using (_×_) renaming (_,_ to ⟨_,_⟩)
 open import Relation.Binary.PropositionalEquality using (_≡_; refl)
 
-open import LambdaAlphaRefStar.Theories.CCAlphaRefStarSyntaxAndTypeSystem as CC
+open import Theories.CCAlphaRefStarSyntaxAndTypeSystem as CC
   using (CodeTerm; OType; ECVar; Var; `_ ; ε; lookupOwner)
-open import LambdaAlphaRefStar.Theories.BaseTypes using (Nat; Unit; Int)
-open import LambdaAlphaRefStar.Theories.STLC as STLC
+open import Theories.BaseTypes using (Nat; Unit; Int)
+open import Theories.STLC as STLC
   using (STLCTerm)
-open import Utils using (index)
+open import Theories.Utils using (index)
 
 
 -- | The reification environment stores the globally-allocated code variables

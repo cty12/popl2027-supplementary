@@ -1,6 +1,6 @@
 {-# OPTIONS --rewriting #-}
 
-module LambdaAlphaRefStar.Theories.ECSubstLemmas where
+module Theories.ECSubstLemmas where
 
 open import Agda.Builtin.Equality.Rewrite
 open import Data.List using (List; []; _∷_; map)
@@ -10,12 +10,12 @@ open import Relation.Binary.PropositionalEquality using (_≡_; refl; subst; con
   renaming (sym to ≡-sym)
 open import Relation.Nullary.Negation using (contradiction)
 
-open import Utils
-open import LambdaAlphaRefStar.Theories.CCAlphaRefStarSyntaxAndTypeSystem
-open import LambdaAlphaRefStar.Theories.ECSubst
-open import LambdaAlphaRefStar.Theories.SubCtxWeakening using (code-⊆ˢ; subctx-lex-to-global)
-import LambdaAlphaRefStar.Theories.CoercionSequences.EC.Definition as EC
-import LambdaAlphaRefStar.Theories.CoercionSequences.Meta.Definition as MC
+open import Theories.Utils
+open import Theories.CCAlphaRefStarSyntaxAndTypeSystem
+open import Theories.ECSubst
+open import Theories.SubCtxWeakening using (code-⊆ˢ; subctx-lex-to-global)
+import Theories.CoercionSequences.EC.Definition as EC
+import Theories.CoercionSequences.Meta.Definition as MC
 
 
 private

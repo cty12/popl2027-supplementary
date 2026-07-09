@@ -1,4 +1,4 @@
-module LambdaAlphaRefStar.Theories.SpaceEfficiency.Proofs.PreserveOK where
+module Theories.SpaceEfficiency.Proofs.PreserveOK where
 
 open import Data.Bool using (true; false)
 open import Data.List using ([]; _∷_; _∷ʳ_)
@@ -7,13 +7,13 @@ open import Data.Nat.Properties using (≤-trans; m≤n⇒m≤1+n)
 open import Data.Product using (Σ-syntax; _×_) renaming (_,_ to ⟨_,_⟩)
 open import Relation.Binary.PropositionalEquality using (_≡_; refl)
 
-import Utils as U
-import LambdaAlphaRefStar.Theories.Heap as H
+import Theories.Utils as U
+import Theories.Heap as H
 
-open import LambdaAlphaRefStar.Theories.SpaceEfficiency.CCAlphaRefStarSyntaxAndTypeSystem
-open import LambdaAlphaRefStar.Theories.SpaceEfficiency.CCAlphaRefStarSemantics
-open import LambdaAlphaRefStar.Theories.SpaceEfficiency.Configuration
-open import LambdaAlphaRefStar.Theories.SpaceEfficiency.AdjacentCastOK public
+open import Theories.SpaceEfficiency.CCAlphaRefStarSyntaxAndTypeSystem
+open import Theories.SpaceEfficiency.CCAlphaRefStarSemantics
+open import Theories.SpaceEfficiency.Configuration
+open import Theories.SpaceEfficiency.AdjacentCastOK public
 
 
 ≤1⇒≤2 : ∀ {n} → n ≤ 1 → n ≤ 2

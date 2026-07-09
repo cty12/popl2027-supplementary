@@ -1,4 +1,4 @@
-module LambdaAlphaRefStar.Theories.SpaceEfficiency.Proofs.RealSizeTermAndHeapSize where
+module Theories.SpaceEfficiency.Proofs.RealSizeTermAndHeapSize where
 
 open import Data.List using ([]; _∷_)
 open import Data.Nat using (ℕ; zero; suc; _+_; _*_; _≤_; _⊔_; z≤n; s≤s)
@@ -9,9 +9,9 @@ open import Relation.Binary.PropositionalEquality using (sym)
 
 open Data.Nat.Properties.≤-Reasoning
 
-open import LambdaAlphaRefStar.Theories.SpaceEfficiency.CCAlphaRefStarSyntaxAndTypeSystem hiding (size)
-open import LambdaAlphaRefStar.Theories.SpaceEfficiency.CCAlphaRefStarSizeAndHeight
-open import LambdaAlphaRefStar.Theories.SpaceEfficiency.Proofs.SizeHeightBounded
+open import Theories.SpaceEfficiency.CCAlphaRefStarSyntaxAndTypeSystem hiding (size)
+open import Theories.SpaceEfficiency.CCAlphaRefStarSizeAndHeight
+open import Theories.SpaceEfficiency.Proofs.SizeHeightBounded
 
 
 nine-pow2-positive : ∀ h → 1 ≤ 9 * pow2 h

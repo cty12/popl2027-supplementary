@@ -1,4 +1,4 @@
-module LambdaAlphaRefStar.Theories.CoercionSequences.Meta.Determinism where
+module Theories.CoercionSequences.Meta.Determinism where
 
 open import Data.Empty using (⊥-elim)
 open import Data.List using (_++_; [_])
@@ -6,11 +6,11 @@ open import Data.Product using (_,_)
 open import Relation.Binary.PropositionalEquality using (_≡_; refl; cong)
 open import Relation.Nullary using (¬_)
 
-import LambdaAlphaRefStar.Theories.CoercionSequences.Code.Definition as OC
-import LambdaAlphaRefStar.Theories.CoercionSequences.Code.Determinism as OCD
-import LambdaAlphaRefStar.Theories.CoercionSequences.EC.Definition as ECS
-import LambdaAlphaRefStar.Theories.CoercionSequences.EC.Determinism as ECD
-open import LambdaAlphaRefStar.Theories.CoercionSequences.Meta.Definition
+import Theories.CoercionSequences.Code.Definition as OC
+import Theories.CoercionSequences.Code.Determinism as OCD
+import Theories.CoercionSequences.EC.Definition as ECS
+import Theories.CoercionSequences.EC.Determinism as ECD
+open import Theories.CoercionSequences.Meta.Definition
 
 
 private

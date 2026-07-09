@@ -1,12 +1,12 @@
-module LambdaAlphaRefStar.Theories.Elaboration where
+module Theories.Elaboration where
 
 open import Data.Product renaming (_,_ to ⟨_,_⟩)
 
-open import Utils
-open import LambdaAlphaRefStar.Theories.SurfaceSyntaxAndTypeSystem
-open import LambdaAlphaRefStar.Theories.ConsistentSubtyping public
-open import LambdaAlphaRefStar.Theories.Coerce
-open import LambdaAlphaRefStar.Theories.CCAlphaRefStarSyntaxAndTypeSystem
+open import Theories.Utils
+open import Theories.SurfaceSyntaxAndTypeSystem
+open import Theories.ConsistentSubtyping public
+open import Theories.Coerce
+open import Theories.CCAlphaRefStarSyntaxAndTypeSystem
 
 
 -- | LATER: Turn these compilation relations into functions

@@ -1,8 +1,8 @@
-module LambdaAlphaRefStar.Theories.MetaSubst where
+module Theories.MetaSubst where
 
-open import LambdaAlphaRefStar.Theories.CCAlphaRefStarSyntaxAndTypeSystem
-open import LambdaAlphaRefStar.Theories.CodeSubst using (renᵒ-meta)
-open import LambdaAlphaRefStar.Theories.ECSubst using (renᵉ-meta)
+open import Theories.CCAlphaRefStarSyntaxAndTypeSystem
+open import Theories.CodeSubst using (renᵒ-meta)
+open import Theories.ECSubst using (renᵉ-meta)
 
 
 -- +-----------------------------+ --

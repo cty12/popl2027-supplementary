@@ -1,16 +1,16 @@
-module LambdaAlphaRefStar.Theories.ElaborationErrorFree where
+module Theories.ElaborationErrorFree where
 
 open import Data.List.Relation.Unary.All using (All) renaming ([] to []ᴬ; _∷_ to _∷ᴬ_)
 open import Data.Product using (_×_) renaming (_,_ to ⟨_,_⟩)
 
-open import Utils using (_∋_⦂_; lookup-all; lookup->member)
-open import LambdaAlphaRefStar.Theories.EnvClassifiers
-open import LambdaAlphaRefStar.Theories.MetaTypes
-open import LambdaAlphaRefStar.Theories.CodeTypes
-open import LambdaAlphaRefStar.Theories.SurfaceFullyStatic
-open import LambdaAlphaRefStar.Theories.Elaboration
-open import LambdaAlphaRefStar.Theories.Coerce
-open import LambdaAlphaRefStar.Theories.ErrorFree
+open import Theories.Utils using (_∋_⦂_; lookup-all; lookup->member)
+open import Theories.EnvClassifiers
+open import Theories.MetaTypes
+open import Theories.CodeTypes
+open import Theories.SurfaceFullyStatic
+open import Theories.Elaboration
+open import Theories.Coerce
+open import Theories.ErrorFree
 
 
 -- | For open terms, fully-static syntax is not enough: a variable from Γᵐ

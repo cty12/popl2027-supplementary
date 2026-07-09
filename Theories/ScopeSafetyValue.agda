@@ -1,4 +1,6 @@
-module LambdaAlphaRefStar.Theories.ScopeSafetyValue where
+{-# OPTIONS --rewriting #-}
+
+module Theories.ScopeSafetyValue where
 
 open import Data.Bool using (false; true)
 open import Data.List using ([]; _∷_)
@@ -11,14 +13,14 @@ open import Relation.Binary.PropositionalEquality using (_≡_; _≢_; refl)
 open import Relation.Nullary using (¬_)
 open import Relation.Nullary.Negation using (contradiction)
 
-open import Utils using (_∋_; index; ≡ᵇ-refl; ⟨_,_,_⟩; ⟨_,_,_,_⟩; ⟨_,_,_,_,_⟩)
-open import LambdaAlphaRefStar.Theories.CCAlphaRefStarSyntaxAndTypeSystem
-open import LambdaAlphaRefStar.Theories.CCAlphaRefStarSemantics
-open import LambdaAlphaRefStar.Theories.CCAlphaRefStarPreservation using (preserveᵐ)
-open import LambdaAlphaRefStar.Theories.Values using (CodeValue; Value; is-const; is-var; is-lamᵒ-val; is-app)
-open import LambdaAlphaRefStar.Theories.Reify using (ReifyEnv; reify; reifyAt)
-open import LambdaAlphaRefStar.Theories.ReifyPreserves using (reify-preserves-types)
-open import LambdaAlphaRefStar.Theories.STLC as STLC
+open import Theories.Utils using (_∋_; index; ≡ᵇ-refl; ⟨_,_,_⟩; ⟨_,_,_,_⟩; ⟨_,_,_,_,_⟩)
+open import Theories.CCAlphaRefStarSyntaxAndTypeSystem
+open import Theories.CCAlphaRefStarSemantics
+open import Theories.CCAlphaRefStarPreservation using (preserveᵐ)
+open import Theories.Values using (CodeValue; Value; is-const; is-var; is-lamᵒ-val; is-app)
+open import Theories.Reify using (ReifyEnv; reify; reifyAt)
+open import Theories.ReifyPreserves using (reify-preserves-types)
+open import Theories.STLC as STLC
 
 -- | A code variable is visible at e when its owner EC is below e.
 VisibleCodeVar : SubCtx → OCtx → EC → Var → Set

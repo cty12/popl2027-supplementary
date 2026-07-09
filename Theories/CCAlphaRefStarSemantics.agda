@@ -8,25 +8,25 @@
 
 -}
 
-module LambdaAlphaRefStar.Theories.CCAlphaRefStarSemantics where
+module Theories.CCAlphaRefStarSemantics where
 
 open import Data.List using ([]; [_]; _++_; _∷ʳ_; length)
 open import Data.Unit using (tt)
 open import Relation.Binary.PropositionalEquality using (_≢_)
 open import Relation.Nullary using (¬_)
 
-open import Utils using (_∋_⦂_)
-open import LambdaAlphaRefStar.Theories.CCAlphaRefStarSyntaxAndTypeSystem hiding (idᵉ)
-open import LambdaAlphaRefStar.Theories.Heap
-open import LambdaAlphaRefStar.Theories.Configurations public
-open import LambdaAlphaRefStar.Theories.Values
-open import LambdaAlphaRefStar.Theories.CodeSubst using (_[_]ᵒ) public
-open import LambdaAlphaRefStar.Theories.ECSubst using (_[_]ᵉᵒ; _[_]ᵉᵐ; _[_]ᶜ) public
-open import LambdaAlphaRefStar.Theories.MetaSubst using (_[_]ᵐ) public
+open import Theories.Utils using (_∋_⦂_)
+open import Theories.CCAlphaRefStarSyntaxAndTypeSystem hiding (idᵉ)
+open import Theories.Heap
+open import Theories.Configurations public
+open import Theories.Values
+open import Theories.CodeSubst using (_[_]ᵒ) public
+open import Theories.ECSubst using (_[_]ᵉᵒ; _[_]ᵉᵐ; _[_]ᶜ) public
+open import Theories.MetaSubst using (_[_]ᵐ) public
 
-import LambdaAlphaRefStar.Theories.CoercionSequences.EC.Definition as ECS
-import LambdaAlphaRefStar.Theories.CoercionSequences.Meta.Definition as MC
-open import LambdaAlphaRefStar.Theories.CoercionSequences.Meta.Definition using (Inert)
+import Theories.CoercionSequences.EC.Definition as ECS
+import Theories.CoercionSequences.Meta.Definition as MC
+open import Theories.CoercionSequences.Meta.Definition using (Inert)
 
 
 -- +------------------------------+ --

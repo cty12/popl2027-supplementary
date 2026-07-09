@@ -1,8 +1,8 @@
-module LambdaAlphaRefStar.Theories.CoercionSequences.Code.Preservation where
+module Theories.CoercionSequences.Code.Preservation where
 
 open import Data.List using (_++_)
 
-open import LambdaAlphaRefStar.Theories.CoercionSequences.Code.Definition
+open import Theories.CoercionSequences.Code.Definition
 
 
 ++-preserve : ∀ {c̅ᵒ d̅ᵒ C₁ C₂ C₃}

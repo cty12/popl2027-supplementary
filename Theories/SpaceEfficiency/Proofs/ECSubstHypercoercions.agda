@@ -1,18 +1,18 @@
-module LambdaAlphaRefStar.Theories.SpaceEfficiency.Proofs.ECSubstHypercoercions where
+module Theories.SpaceEfficiency.Proofs.ECSubstHypercoercions where
 
 open import Data.List using (List; []; _∷_; map)
 open import Data.Product using (_×_) renaming (_,_ to ⟨_,_⟩)
 open import Relation.Binary.PropositionalEquality using (_≡_; refl; subst; cong; trans)
 
-open import Utils using (_∋_; member-map; member-map-inv)
-open import LambdaAlphaRefStar.Theories.SpaceEfficiency.CCAlphaRefStarSyntaxAndTypeSystem
-open import LambdaAlphaRefStar.Theories.SpaceEfficiency.CCAlphaRefStarSemantics
+open import Theories.Utils using (_∋_; member-map; member-map-inv)
+open import Theories.SpaceEfficiency.CCAlphaRefStarSyntaxAndTypeSystem
+open import Theories.SpaceEfficiency.CCAlphaRefStarSemantics
   using
     (substᵉ-ehead; substᵉ-emiddle; substᵉ-etail; substᵉ-ehc;
      substᵉ-mhead; substᵉ-mmiddle; substᵉ-mtail; substᵉ-mhc; _[_]ᶜ)
 
-import LambdaAlphaRefStar.Theories.SpaceEfficiency.ECHypercoercions as EH
-import LambdaAlphaRefStar.Theories.SpaceEfficiency.MetaHypercoercions as MH
+import Theories.SpaceEfficiency.ECHypercoercions as EH
+import Theories.SpaceEfficiency.MetaHypercoercions as MH
 
 
 private

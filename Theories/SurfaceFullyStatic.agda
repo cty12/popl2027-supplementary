@@ -1,6 +1,6 @@
-module LambdaAlphaRefStar.Theories.SurfaceFullyStatic where
+module Theories.SurfaceFullyStatic where
 
-open import LambdaAlphaRefStar.Theories.SurfaceSyntaxAndTypeSystem
+open import Theories.SurfaceSyntaxAndTypeSystem
 
 
 -- | Fully-static gradual ECs: the unknown EC `⋆` is excluded.

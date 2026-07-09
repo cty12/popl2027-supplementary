@@ -1,8 +1,8 @@
-module LambdaAlphaRefStar.Theories.SpaceEfficiency.Proofs.ECHypercoercionsPreservation where
+module Theories.SpaceEfficiency.Proofs.ECHypercoercionsPreservation where
 
-open import LambdaAlphaRefStar.Theories.EnvClassifiers
-open import LambdaAlphaRefStar.Theories.ECSubtypeDecidable using (ec-<:⋆?)
-open import LambdaAlphaRefStar.Theories.SpaceEfficiency.ECHypercoercions
+open import Theories.EnvClassifiers
+open import Theories.ECSubtypeDecidable using (ec-<:⋆?)
+open import Theories.SpaceEfficiency.ECHypercoercions
 open import Relation.Nullary using (yes; no)
 
 

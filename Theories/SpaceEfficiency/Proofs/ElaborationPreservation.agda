@@ -1,7 +1,7 @@
-module LambdaAlphaRefStar.Theories.SpaceEfficiency.Proofs.ElaborationPreservation where
+module Theories.SpaceEfficiency.Proofs.ElaborationPreservation where
 
-open import LambdaAlphaRefStar.Theories.SpaceEfficiency.CCAlphaRefStarSyntaxAndTypeSystem
-open import LambdaAlphaRefStar.Theories.SpaceEfficiency.Elaboration
+open import Theories.SpaceEfficiency.CCAlphaRefStarSyntaxAndTypeSystem
+open import Theories.SpaceEfficiency.Elaboration
 
 
 mutual

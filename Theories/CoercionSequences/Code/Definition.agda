@@ -1,12 +1,12 @@
-module LambdaAlphaRefStar.Theories.CoercionSequences.Code.Definition where
+module Theories.CoercionSequences.Code.Definition where
 
 open import Data.List using (List; []; _∷_; _++_; [_])
 open import Data.Product using (∃-syntax; _×_)
 open import Relation.Binary.PropositionalEquality using (_≡_; _≢_)
 open import Relation.Nullary using (¬_)
 
-open import LambdaAlphaRefStar.Theories.CodeTypes public
-open import LambdaAlphaRefStar.Theories.BlameLabels public
+open import Theories.CodeTypes public
+open import Theories.BlameLabels public
 
 
 infix 9 _！

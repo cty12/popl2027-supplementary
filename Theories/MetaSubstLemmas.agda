@@ -1,17 +1,19 @@
-module LambdaAlphaRefStar.Theories.MetaSubstLemmas where
+{-# OPTIONS --rewriting #-}
+
+module Theories.MetaSubstLemmas where
 
 open import Data.Nat using (zero; suc)
 open import Data.Maybe using (just)
 open import Data.Product renaming (_,_ to ⟨_,_⟩)
 open import Relation.Binary.PropositionalEquality using (_≡_; refl)
 
-open import Utils using (_∋_⦂_; S_; here; there; ⟨_,_,_⟩; ⟨_,_,_,_⟩)
-open import LambdaAlphaRefStar.Theories.CCAlphaRefStarSyntaxAndTypeSystem
-open import LambdaAlphaRefStar.Theories.CodeSubstLemmas using (CodeRenWF; codeRenWF; meta-code-ren)
-open import LambdaAlphaRefStar.Theories.ECSubst using (renᵉ-meta)
-open import LambdaAlphaRefStar.Theories.ECSubstLemmas using (meta-ec-ren-suc)
-open import LambdaAlphaRefStar.Theories.MetaSubst
-open import LambdaAlphaRefStar.Theories.SubCtxWeakening using (meta-subctx-weaken)
+open import Theories.Utils using (_∋_⦂_; S_; here; there; ⟨_,_,_⟩; ⟨_,_,_,_⟩)
+open import Theories.CCAlphaRefStarSyntaxAndTypeSystem
+open import Theories.CodeSubstLemmas using (CodeRenWF; codeRenWF; meta-code-ren)
+open import Theories.ECSubst using (renᵉ-meta)
+open import Theories.ECSubstLemmas using (meta-ec-ren-suc)
+open import Theories.MetaSubst
+open import Theories.SubCtxWeakening using (meta-subctx-weaken)
 
 
 private

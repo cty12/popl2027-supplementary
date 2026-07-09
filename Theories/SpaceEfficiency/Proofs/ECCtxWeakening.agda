@@ -1,18 +1,18 @@
-module LambdaAlphaRefStar.Theories.SpaceEfficiency.Proofs.ECCtxWeakening where
+module Theories.SpaceEfficiency.Proofs.ECCtxWeakening where
 
 open import Data.Nat.Properties using (≤-trans; <-≤-trans)
 
-open import Utils using (⟨_,_,_,_⟩)
-open import LambdaAlphaRefStar.Theories.SpaceEfficiency.CCAlphaRefStarSyntaxAndTypeSystem
-open import LambdaAlphaRefStar.Theories.ECCtxWeakening
+open import Theories.Utils using (⟨_,_,_,_⟩)
+open import Theories.SpaceEfficiency.CCAlphaRefStarSyntaxAndTypeSystem
+open import Theories.ECCtxWeakening
   using
     (_⊆ᵉ_; size≤; cutoff≤; ⊆ᵉ-refl; ⊆ᵉ-cons; ⊆ᵉ-snoc; ec-weaken;
      globalEC-weaken; ec⋆-weaken; mtype-weaken; subctx-weaken;
      octx-weaken; mctx-weaken)
   public
 
-import LambdaAlphaRefStar.Theories.SpaceEfficiency.ECHypercoercions as EH
-import LambdaAlphaRefStar.Theories.SpaceEfficiency.MetaHypercoercions as MH
+import Theories.SpaceEfficiency.ECHypercoercions as EH
+import Theories.SpaceEfficiency.MetaHypercoercions as MH
 
 
 ------------------------------------------------------------------------

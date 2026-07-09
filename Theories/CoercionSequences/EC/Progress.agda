@@ -1,12 +1,12 @@
-module LambdaAlphaRefStar.Theories.CoercionSequences.EC.Progress where
+module Theories.CoercionSequences.EC.Progress where
 
 open import Data.Product using (_,_)
 open import Relation.Binary.PropositionalEquality using (refl)
 open import Relation.Nullary using (Dec; yes; no)
 open import Relation.Nullary.Negation using (contradiction)
 
-open import LambdaAlphaRefStar.Theories.CoercionSequences.EC.Definition
-open import LambdaAlphaRefStar.Theories.ECSubtypeDecidable using (ec-<:?)
+open import Theories.CoercionSequences.EC.Definition
+open import Theories.ECSubtypeDecidable using (ec-<:?)
 
 
 data Progressᵉ (Θ : SubCtx) (cᵉ : ECSingleCoercion) : Set where

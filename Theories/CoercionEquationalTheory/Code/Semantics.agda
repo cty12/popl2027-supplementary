@@ -1,8 +1,8 @@
-module LambdaAlphaRefStar.Theories.CoercionEquationalTheory.Code.Semantics where
+module Theories.CoercionEquationalTheory.Code.Semantics where
 
 open import Relation.Binary.PropositionalEquality using (_≢_)
 
-open import LambdaAlphaRefStar.Theories.CoercionEquationalTheory.Code.SyntaxAndTyping
+open import Theories.CoercionEquationalTheory.Code.SyntaxAndTyping
 
 
 -- | Frames for raw object coercions.

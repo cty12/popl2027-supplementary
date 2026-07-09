@@ -1,19 +1,19 @@
-module LambdaAlphaRefStar.Theories.SpaceEfficiency.Proofs.HypercoercionCompositionBounded where
+module Theories.SpaceEfficiency.Proofs.HypercoercionCompositionBounded where
 
 open import Data.Nat using (ℕ; _≤_; _⊔_; suc; z≤n; s≤s)
 open import Data.Nat.Properties using
   (≤-refl; ≤-trans; m≤m⊔n; m≤n⊔m; ⊔-mono-≤; ⊔-lub)
 open import Relation.Nullary using (yes; no)
 
-open import LambdaAlphaRefStar.Theories.EnvClassifiers using
+open import Theories.EnvClassifiers using
   (SubCtx; ⇑ᵉ-subctx; _,_<:_)
 
-open import LambdaAlphaRefStar.Theories.CodeTypes
-open import LambdaAlphaRefStar.Theories.MetaTypes
-open import LambdaAlphaRefStar.Theories.SpaceEfficiency.ECHypercoercions
-open import LambdaAlphaRefStar.Theories.SpaceEfficiency.ObjectHypercoercions
-open import LambdaAlphaRefStar.Theories.SpaceEfficiency.MetaHypercoercions
-open import LambdaAlphaRefStar.Theories.SpaceEfficiency.CCAlphaRefStarSizeAndHeight
+open import Theories.CodeTypes
+open import Theories.MetaTypes
+open import Theories.SpaceEfficiency.ECHypercoercions
+open import Theories.SpaceEfficiency.ObjectHypercoercions
+open import Theories.SpaceEfficiency.MetaHypercoercions
+open import Theories.SpaceEfficiency.CCAlphaRefStarSizeAndHeight
 
 
 pos-code-middle-height : (m : OMiddle) → 1 ≤ code-middle-height m

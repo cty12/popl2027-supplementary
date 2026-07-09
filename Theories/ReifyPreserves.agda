@@ -1,4 +1,4 @@
-module LambdaAlphaRefStar.Theories.ReifyPreserves where
+module Theories.ReifyPreserves where
 
 open import Data.Bool using (T; true; false)
 open import Data.List using (List; []; _∷_)
@@ -12,11 +12,11 @@ open import Relation.Binary.PropositionalEquality using (_≡_; _≢_; refl; con
 open import Relation.Nullary using (yes; no)
 open import Relation.Nullary.Negation using (contradiction)
 
-open import Utils using (index; _∋_⦂_; here; there; ⟨_,_,_,_⟩)
-open import LambdaAlphaRefStar.Theories.CCAlphaRefStarSyntaxAndTypeSystem
-open import LambdaAlphaRefStar.Theories.Values using (CodeValue; is-const; is-var; is-lamᵒ-val; is-app)
-open import LambdaAlphaRefStar.Theories.Reify using (ReifyEnv; reify; reifyAt)
-open import LambdaAlphaRefStar.Theories.STLC as STLC
+open import Theories.Utils using (index; _∋_⦂_; here; there; ⟨_,_,_,_⟩)
+open import Theories.CCAlphaRefStarSyntaxAndTypeSystem
+open import Theories.Values using (CodeValue; is-const; is-var; is-lamᵒ-val; is-app)
+open import Theories.Reify using (ReifyEnv; reify; reifyAt)
+open import Theories.STLC as STLC
 
 
 private

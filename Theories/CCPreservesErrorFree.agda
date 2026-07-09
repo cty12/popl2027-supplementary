@@ -1,4 +1,4 @@
-module LambdaAlphaRefStar.Theories.CCPreservesErrorFree where
+module Theories.CCPreservesErrorFree where
 
 open import Data.Empty using (⊥)
 open import Data.List using ([]; _∷_; _∷ʳ_; _++_)
@@ -8,26 +8,26 @@ open import Data.Nat using (zero; suc)
 open import Data.Product renaming (_,_ to ⟨_,_⟩)
 open import Relation.Binary.PropositionalEquality using (_≢_)
 
-open import Utils using (_∋_⦂_; here; there)
-open import LambdaAlphaRefStar.Theories.CCAlphaRefStarSyntaxAndTypeSystem hiding (idᵉ)
-open import LambdaAlphaRefStar.Theories.CCAlphaRefStarSemantics
-open import LambdaAlphaRefStar.Theories.CodeSubst
+open import Theories.Utils using (_∋_⦂_; here; there)
+open import Theories.CCAlphaRefStarSyntaxAndTypeSystem hiding (idᵉ)
+open import Theories.CCAlphaRefStarSemantics
+open import Theories.CodeSubst
   using (SubstCode; _[_]ᵒ; renᵒ-code; renᵒ-meta; substᵒ-code; substᵒ-meta; idsᵒ; _•ᵒₛ_)
-open import LambdaAlphaRefStar.Theories.ECSubst
+open import Theories.ECSubst
   using (_[_]ᵉᵐ; renᵉ-code; renᵉ-meta; renᵉ-ecoercion; renᵉ-ecoercionSeq
        ; renᵉ-mcoercion; renᵉ-mcoercionSeq; renᵉ-metacoercion
        ; substᵉ-code; substᵉ-meta; substᵉ-ecoercion; substᵉ-ecoercionSeq
        ; substᵉ-mcoercion; substᵉ-mcoercionSeq)
-open import LambdaAlphaRefStar.Theories.EnvClassifiers using (SubstEC; idsᵉ; _•ᵉₛ_; freshᵉ)
-open import LambdaAlphaRefStar.Theories.Heap using (Heap; _⟦_↦_⟧=_)
-import LambdaAlphaRefStar.Theories.Heap as H
-open import LambdaAlphaRefStar.Theories.MetaSubst
+open import Theories.EnvClassifiers using (SubstEC; idsᵉ; _•ᵉₛ_; freshᵉ)
+open import Theories.Heap using (Heap; _⟦_↦_⟧=_)
+import Theories.Heap as H
+open import Theories.MetaSubst
   using (SubstMeta; _[_]ᵐ; renᵐ-code; renᵐ-meta; substᵐ-code; substᵐ-meta)
-open import LambdaAlphaRefStar.Theories.ErrorFree
-open import LambdaAlphaRefStar.Theories.Values
-import LambdaAlphaRefStar.Theories.CoercionSequences.EC.Definition as EC
-import LambdaAlphaRefStar.Theories.CoercionSequences.Code.Definition as OC
-import LambdaAlphaRefStar.Theories.CoercionSequences.Meta.Definition as MC
+open import Theories.ErrorFree
+open import Theories.Values
+import Theories.CoercionSequences.EC.Definition as EC
+import Theories.CoercionSequences.Code.Definition as OC
+import Theories.CoercionSequences.Meta.Definition as MC
 
 
 ErrorFreeHeap : Heap → Set

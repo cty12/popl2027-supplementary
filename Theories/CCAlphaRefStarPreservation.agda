@@ -1,4 +1,6 @@
-module LambdaAlphaRefStar.Theories.CCAlphaRefStarPreservation where
+{-# OPTIONS --rewriting #-}
+
+module Theories.CCAlphaRefStarPreservation where
 
 open import Data.List using ([]; _∷_; _∷ʳ_; [_]; _++_)
 open import Data.List.Relation.Unary.All using ([]) renaming (_∷_ to _∷ᴬ_)
@@ -7,29 +9,29 @@ open import Data.Nat.Properties using (≤-trans; <-≤-trans)
 open import Data.Product using (Σ-syntax; ∃-syntax; _×_) renaming (_,_ to ⟨_,_⟩)
 open import Data.Unit using (tt)
 
-open import Utils
-open import LambdaAlphaRefStar.Theories.CCAlphaRefStarSyntaxAndTypeSystem
-open import LambdaAlphaRefStar.Theories.CCAlphaRefStarSemantics
-open import LambdaAlphaRefStar.Theories.Values
-open import LambdaAlphaRefStar.Theories.CodeCtxWeakening
+open import Theories.Utils
+open import Theories.CCAlphaRefStarSyntaxAndTypeSystem
+open import Theories.CCAlphaRefStarSemantics
+open import Theories.Values
+open import Theories.CodeCtxWeakening
   using (code-octx-≼; meta-octx-≼)
-open import LambdaAlphaRefStar.Theories.ECCtxWeakening
-open import LambdaAlphaRefStar.Theories.Heap
-open import LambdaAlphaRefStar.Theories.HeapCtxWeakening
+open import Theories.ECCtxWeakening
+open import Theories.Heap
+open import Theories.HeapCtxWeakening
   using (code-heapctx-≼; meta-heapctx-≼)
-open import LambdaAlphaRefStar.Theories.CodeSubstLemmas
-open import LambdaAlphaRefStar.Theories.MetaSubstLemmas
-open import LambdaAlphaRefStar.Theories.ECSubstLemmas using (subst-ec-meta; subst-ec-coercion)
-open import LambdaAlphaRefStar.Theories.SubCtxWeakening
+open import Theories.CodeSubstLemmas
+open import Theories.MetaSubstLemmas
+open import Theories.ECSubstLemmas using (subst-ec-meta; subst-ec-coercion)
+open import Theories.SubCtxWeakening
   using
     (subctx-refl; subctx-global-weaken; global-subedge-last; code-⊆ˢ; meta-⊆ˢ;
      meta-coercion-⊆ˢ)
-open import LambdaAlphaRefStar.Theories.SubCtxDrop using (subtype-drop-coercion; subtype-drop-term)
-open import LambdaAlphaRefStar.Theories.WellTypedTermImpliesWellFormedTypes using (wt-impl-wf-mtype)
-import LambdaAlphaRefStar.Theories.CoercionSequences.EC.Definition as EC
-import LambdaAlphaRefStar.Theories.CoercionSequences.Code.Definition as OC
-import LambdaAlphaRefStar.Theories.CoercionSequences.Meta.Definition as MC
-import LambdaAlphaRefStar.Theories.CoercionSequences.Meta.Preservation as MCP
+open import Theories.SubCtxDrop using (subtype-drop-coercion; subtype-drop-term)
+open import Theories.WellTypedTermImpliesWellFormedTypes using (wt-impl-wf-mtype)
+import Theories.CoercionSequences.EC.Definition as EC
+import Theories.CoercionSequences.Code.Definition as OC
+import Theories.CoercionSequences.Meta.Definition as MC
+import Theories.CoercionSequences.Meta.Preservation as MCP
 
 
 -- | Helpers for cases where only the term changes in the configuration

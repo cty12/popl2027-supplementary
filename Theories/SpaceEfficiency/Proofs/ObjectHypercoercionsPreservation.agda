@@ -1,7 +1,7 @@
-module LambdaAlphaRefStar.Theories.SpaceEfficiency.Proofs.ObjectHypercoercionsPreservation where
+module Theories.SpaceEfficiency.Proofs.ObjectHypercoercionsPreservation where
 
-open import LambdaAlphaRefStar.Theories.CodeTypes
-open import LambdaAlphaRefStar.Theories.SpaceEfficiency.ObjectHypercoercions
+open import Theories.CodeTypes
+open import Theories.SpaceEfficiency.ObjectHypercoercions
 open import Relation.Binary.PropositionalEquality using (refl)
 open import Relation.Nullary using (yes; no)
 

@@ -1,4 +1,4 @@
-module LambdaAlphaRefStar.Theories.SpaceEfficiency.SpaceEfficient where
+module Theories.SpaceEfficiency.SpaceEfficient where
 
 open import Data.Bool using (Bool; true; false)
 open import Data.List using ([]; _∷_; _∷ʳ_)
@@ -12,32 +12,32 @@ open import Relation.Binary.PropositionalEquality using (_≡_; refl; sym)
 
 open Data.Nat.Properties.≤-Reasoning
 
-open import LambdaAlphaRefStar.Theories.SurfaceSyntaxAndTypeSystem
+open import Theories.SurfaceSyntaxAndTypeSystem
   using (CodeSurfaceTerm; MetaSurfaceTerm; _;_;_;_⊢_⦂_)
-open import LambdaAlphaRefStar.Theories.SpaceEfficiency.CCAlphaRefStarSyntaxAndTypeSystem hiding (size)
-open import LambdaAlphaRefStar.Theories.SpaceEfficiency.CCAlphaRefStarSemantics
-open import LambdaAlphaRefStar.Theories.SpaceEfficiency.Configuration
+open import Theories.SpaceEfficiency.CCAlphaRefStarSyntaxAndTypeSystem hiding (size)
+open import Theories.SpaceEfficiency.CCAlphaRefStarSemantics
+open import Theories.SpaceEfficiency.Configuration
   using (WTMetaConfig)
-open import LambdaAlphaRefStar.Theories.SpaceEfficiency.Elaboration
+open import Theories.SpaceEfficiency.Elaboration
   using (_;_;_;_⊢_↝_⦂_)
-open import LambdaAlphaRefStar.Theories.SpaceEfficiency.Compilation
+open import Theories.SpaceEfficiency.Compilation
   using (compile)
-open import LambdaAlphaRefStar.Theories.SpaceEfficiency.CCAlphaRefStarSizeAndHeight
-open import LambdaAlphaRefStar.Theories.SpaceEfficiency.Proofs.SizeHeightBounded
-open import LambdaAlphaRefStar.Theories.SpaceEfficiency.Proofs.LeastUpperBoundLemmas
-open import LambdaAlphaRefStar.Theories.SpaceEfficiency.AdjacentCastOK
-open import LambdaAlphaRefStar.Theories.SpaceEfficiency.Proofs.PreserveOK
-open import LambdaAlphaRefStar.Theories.SpaceEfficiency.Proofs.PreserveHeight
-open import LambdaAlphaRefStar.Theories.SpaceEfficiency.Proofs.RealSizeTermAndHeapSize
-open import LambdaAlphaRefStar.Theories.SpaceEfficiency.Proofs.SizeOK
-open import LambdaAlphaRefStar.Theories.SpaceEfficiency.Proofs.CompileEfficient
+open import Theories.SpaceEfficiency.CCAlphaRefStarSizeAndHeight
+open import Theories.SpaceEfficiency.Proofs.SizeHeightBounded
+open import Theories.SpaceEfficiency.Proofs.LeastUpperBoundLemmas
+open import Theories.SpaceEfficiency.AdjacentCastOK
+open import Theories.SpaceEfficiency.Proofs.PreserveOK
+open import Theories.SpaceEfficiency.Proofs.PreserveHeight
+open import Theories.SpaceEfficiency.Proofs.RealSizeTermAndHeapSize
+open import Theories.SpaceEfficiency.Proofs.SizeOK
+open import Theories.SpaceEfficiency.Proofs.CompileEfficient
   using (compile-efficient)
-open import LambdaAlphaRefStar.Theories.SpaceEfficiency.Proofs.ElaborationEfficient
+open import Theories.SpaceEfficiency.Proofs.ElaborationEfficient
   using (elab-efficient)
 
-open import LambdaAlphaRefStar.Theories.SpaceEfficiency.ECHypercoercions
-open import LambdaAlphaRefStar.Theories.SpaceEfficiency.ObjectHypercoercions
-open import LambdaAlphaRefStar.Theories.SpaceEfficiency.MetaHypercoercions
+open import Theories.SpaceEfficiency.ECHypercoercions
+open import Theories.SpaceEfficiency.ObjectHypercoercions
+open import Theories.SpaceEfficiency.MetaHypercoercions
 
 
 space-consumption-ok : ∀ {ctx n} (M₀ : MetaTerm)

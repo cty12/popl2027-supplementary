@@ -1,16 +1,16 @@
-module LambdaAlphaRefStar.Theories.SurfaceSyntaxAndTypeSystem where
+module Theories.SurfaceSyntaxAndTypeSystem where
 
 open import Data.Nat using (zero)
 open import Data.Product using () renaming (_,_ to ⟨_,_⟩)
-open import Utils using (_∋_; _∋_⦂_)
+open import Theories.Utils using (_∋_; _∋_⦂_)
 
-open import LambdaAlphaRefStar.Theories.EnvClassifiers  public hiding (size)
-open import LambdaAlphaRefStar.Theories.BaseTypes       public
-open import LambdaAlphaRefStar.Theories.MetaTypes       public
-open import LambdaAlphaRefStar.Theories.CodeTypes       public
-open import LambdaAlphaRefStar.Theories.BlameLabels     public
-open import LambdaAlphaRefStar.Theories.ConsistentSubtyping public
-open import LambdaAlphaRefStar.Theories.CCAlphaRefStarSyntaxAndTypeSystem
+open import Theories.EnvClassifiers  public hiding (size)
+open import Theories.BaseTypes       public
+open import Theories.MetaTypes       public
+open import Theories.CodeTypes       public
+open import Theories.BlameLabels     public
+open import Theories.ConsistentSubtyping public
+open import Theories.CCAlphaRefStarSyntaxAndTypeSystem
   using (Var)
 
 infixl 7 _·_^_

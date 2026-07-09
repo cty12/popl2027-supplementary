@@ -1,12 +1,12 @@
-module LambdaAlphaRefStar.Theories.SubCtxDrop where
+module Theories.SubCtxDrop where
 
 open import Data.Product using () renaming (_,_ to ⟨_,_⟩)
 
-open import Utils using (_⊆_; Z; S_; ⟨_,_,_,_⟩)
-open import LambdaAlphaRefStar.Theories.CCAlphaRefStarSyntaxAndTypeSystem
-open import LambdaAlphaRefStar.Theories.SubCtxWeakening
+open import Theories.Utils using (_⊆_; Z; S_; ⟨_,_,_,_⟩)
+open import Theories.CCAlphaRefStarSyntaxAndTypeSystem
+open import Theories.SubCtxWeakening
   using (meta-coercion-⊆ˢ; meta-⊆ˢ)
-import LambdaAlphaRefStar.Theories.CoercionSequences.Meta.Definition as MC
+import Theories.CoercionSequences.Meta.Definition as MC
 
 
 -- | If the subtyping is already implied, we can drop it from the context

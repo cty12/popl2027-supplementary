@@ -1,8 +1,8 @@
-module LambdaAlphaRefStar.Theories.SpaceEfficiency.ECHypercoercions where
+module Theories.SpaceEfficiency.ECHypercoercions where
 
-open import LambdaAlphaRefStar.Theories.EnvClassifiers
-open import LambdaAlphaRefStar.Theories.BlameLabels public
-open import LambdaAlphaRefStar.Theories.ECSubtypeDecidable using (ec-<:⋆?)
+open import Theories.EnvClassifiers
+open import Theories.BlameLabels public
+open import Theories.ECSubtypeDecidable using (ec-<:⋆?)
 open import Relation.Nullary using (yes; no)
 
 

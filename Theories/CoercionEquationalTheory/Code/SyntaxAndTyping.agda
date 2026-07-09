@@ -1,7 +1,7 @@
-module LambdaAlphaRefStar.Theories.CoercionEquationalTheory.Code.SyntaxAndTyping where
+module Theories.CoercionEquationalTheory.Code.SyntaxAndTyping where
 
-open import LambdaAlphaRefStar.Theories.CodeTypes public
-open import LambdaAlphaRefStar.Theories.BlameLabels public
+open import Theories.CodeTypes public
+open import Theories.BlameLabels public
 
 infix 9 _！
 infix 9 _？_

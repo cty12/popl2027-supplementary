@@ -1,13 +1,13 @@
-module LambdaAlphaRefStar.Theories.SpaceEfficiency.Proofs.CodeCtxWeakening where
+module Theories.SpaceEfficiency.Proofs.CodeCtxWeakening where
 
 open import Data.Nat using (suc; zero)
 open import Data.Product renaming (_,_ to ⟨_,_⟩)
 open import Relation.Binary.PropositionalEquality using (subst; cong; refl)
   renaming (sym to ≡-sym)
 
-open import Utils using (_∋_; _⊆_; _≼_; ≼-member; ⟨_,_,_⟩; ⟨_,_,_,_⟩; lookup-snoc; lookup-map; ∋-∷ʳ;
+open import Theories.Utils using (_∋_; _⊆_; _≼_; ≼-member; ⟨_,_,_⟩; ⟨_,_,_,_⟩; lookup-snoc; lookup-map; ∋-∷ʳ;
   lookup-map-inv; member-map-drop; member-map-drop-inv; here; there)
-open import LambdaAlphaRefStar.Theories.SpaceEfficiency.CCAlphaRefStarSyntaxAndTypeSystem
+open import Theories.SpaceEfficiency.CCAlphaRefStarSyntaxAndTypeSystem
 
 
 ------------------------------------------------------------------------

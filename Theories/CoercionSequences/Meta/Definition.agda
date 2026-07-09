@@ -1,15 +1,15 @@
-module LambdaAlphaRefStar.Theories.CoercionSequences.Meta.Definition where
+module Theories.CoercionSequences.Meta.Definition where
 
 open import Data.List using (List; []; _∷_; _++_; [_])
 open import Data.Product using (∃-syntax; _×_)
 open import Relation.Binary.PropositionalEquality using (_≡_; _≢_)
 open import Relation.Nullary using (¬_)
 
-import LambdaAlphaRefStar.Theories.CoercionSequences.Code.Definition as OC
-import LambdaAlphaRefStar.Theories.CoercionSequences.EC.Definition as ECS
-open import LambdaAlphaRefStar.Theories.EnvClassifiers public
-open import LambdaAlphaRefStar.Theories.MetaTypes public
-open import LambdaAlphaRefStar.Theories.BlameLabels public
+import Theories.CoercionSequences.Code.Definition as OC
+import Theories.CoercionSequences.EC.Definition as ECS
+open import Theories.EnvClassifiers public
+open import Theories.MetaTypes public
+open import Theories.BlameLabels public
 
 
 infix 9 _！

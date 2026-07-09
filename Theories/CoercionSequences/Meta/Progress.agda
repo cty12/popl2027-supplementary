@@ -1,15 +1,15 @@
-module LambdaAlphaRefStar.Theories.CoercionSequences.Meta.Progress where
+module Theories.CoercionSequences.Meta.Progress where
 
 open import Data.List using ([]; _∷_; [_])
 open import Data.Product using (_×_; _,_)
 open import Relation.Binary.PropositionalEquality using (refl)
 open import Relation.Nullary using (yes; no; ¬_)
 
-import LambdaAlphaRefStar.Theories.CoercionSequences.Code.Definition as OC
-import LambdaAlphaRefStar.Theories.CoercionSequences.Code.Progress as OCP
-import LambdaAlphaRefStar.Theories.CoercionSequences.EC.Definition as ECS
-import LambdaAlphaRefStar.Theories.CoercionSequences.EC.Progress as ECP
-open import LambdaAlphaRefStar.Theories.CoercionSequences.Meta.Definition
+import Theories.CoercionSequences.Code.Definition as OC
+import Theories.CoercionSequences.Code.Progress as OCP
+import Theories.CoercionSequences.EC.Definition as ECS
+import Theories.CoercionSequences.EC.Progress as ECP
+open import Theories.CoercionSequences.Meta.Definition
 
 
 data Progressᵐ (Θ : SubCtx) (cᵐ : MSingleCoercion) : Set where

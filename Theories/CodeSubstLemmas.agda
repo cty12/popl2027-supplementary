@@ -1,4 +1,6 @@
-module LambdaAlphaRefStar.Theories.CodeSubstLemmas where
+{-# OPTIONS --rewriting #-}
+
+module Theories.CodeSubstLemmas where
 
 open import Data.List using ([]; _∷_)
 open import Data.Maybe using (just; nothing)
@@ -8,11 +10,11 @@ open import Relation.Binary.PropositionalEquality using (_≡_; refl; subst; tra
 open import Relation.Nullary using (yes; no)
 open import Relation.Nullary.Negation using (contradiction)
 
-open import Utils
-open import LambdaAlphaRefStar.Theories.CCAlphaRefStarSyntaxAndTypeSystem
-open import LambdaAlphaRefStar.Theories.CodeSubst
-open import LambdaAlphaRefStar.Theories.ECSubst using (_[_]ᵉᵒ)
-open import LambdaAlphaRefStar.Theories.ECSubstLemmas using (subst-ec-code)
+open import Theories.Utils
+open import Theories.CCAlphaRefStarSyntaxAndTypeSystem
+open import Theories.CodeSubst
+open import Theories.ECSubst using (_[_]ᵉᵒ)
+open import Theories.ECSubstLemmas using (subst-ec-code)
 
 
 record CodeRenWF (Δ : ECCtx) (ρ : RenameCode) (Γᵒ₁ Γᵒ₂ : OCtx) : Set where

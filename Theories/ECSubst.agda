@@ -1,10 +1,10 @@
-module LambdaAlphaRefStar.Theories.ECSubst where
+module Theories.ECSubst where
 
 open import Data.List using ([]; _∷_)
 
-open import LambdaAlphaRefStar.Theories.CCAlphaRefStarSyntaxAndTypeSystem
-open import LambdaAlphaRefStar.Theories.CoercionSequences.EC.Definition
-open import LambdaAlphaRefStar.Theories.CoercionSequences.Meta.Definition hiding (_;_)
+open import Theories.CCAlphaRefStarSyntaxAndTypeSystem
+open import Theories.CoercionSequences.EC.Definition
+open import Theories.CoercionSequences.Meta.Definition hiding (_;_)
 
 
 -- +-----------------------------+ --

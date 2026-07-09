@@ -1,19 +1,19 @@
-module LambdaAlphaRefStar.Theories.SpaceEfficiency.Proofs.CompileEfficient where
+module Theories.SpaceEfficiency.Proofs.CompileEfficient where
 
 open import Data.Bool using (Bool; true)
 open import Data.Nat using (ℕ; zero; suc; _≤_; z≤n; s≤s)
 open import Data.Product using (Σ-syntax; _×_) renaming (_,_ to ⟨_,_⟩)
 
-open import LambdaAlphaRefStar.Theories.SurfaceSyntaxAndTypeSystem
-open import LambdaAlphaRefStar.Theories.SpaceEfficiency.Compilation
+open import Theories.SurfaceSyntaxAndTypeSystem
+open import Theories.SpaceEfficiency.Compilation
   using (compileᵒ⇒; compileᵒ⇐; compile)
-open import LambdaAlphaRefStar.Theories.SpaceEfficiency.AdjacentCastOK
+open import Theories.SpaceEfficiency.AdjacentCastOK
   using
     (_⊢ᵒ_ok; _∣_⊢ᵐ_ok;
      spliceOK; constᵒOK; varᵒOK; absᵒOK; appᵒOK;
      constᵐOK; varᵐOK; absᵐOK; appᵐOK; ecAbsOK; ecAppOK; subIntroOK; subElimOK; subElimDynOK;
      quoteOK; refOK; assignOK; derefOK)
-open import LambdaAlphaRefStar.Theories.SpaceEfficiency.Proofs.PreserveOK
+open import Theories.SpaceEfficiency.Proofs.PreserveOK
   using (cast-pres-ok)
 
 

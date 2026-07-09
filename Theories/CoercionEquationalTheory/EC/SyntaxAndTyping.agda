@@ -1,7 +1,7 @@
-module LambdaAlphaRefStar.Theories.CoercionEquationalTheory.EC.SyntaxAndTyping where
+module Theories.CoercionEquationalTheory.EC.SyntaxAndTyping where
 
-open import LambdaAlphaRefStar.Theories.EnvClassifiers public
-open import LambdaAlphaRefStar.Theories.BlameLabels     public
+open import Theories.EnvClassifiers public
+open import Theories.BlameLabels     public
 
 infix 9 _！
 infix 9 _？_

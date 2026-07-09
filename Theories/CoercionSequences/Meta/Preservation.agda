@@ -1,12 +1,12 @@
-module LambdaAlphaRefStar.Theories.CoercionSequences.Meta.Preservation where
+module Theories.CoercionSequences.Meta.Preservation where
 
 open import Data.List using (_++_; [_])
 
-import LambdaAlphaRefStar.Theories.CoercionSequences.Code.Definition as OC
-import LambdaAlphaRefStar.Theories.CoercionSequences.Code.Preservation as OCP
-import LambdaAlphaRefStar.Theories.CoercionSequences.EC.Definition as ECS
-import LambdaAlphaRefStar.Theories.CoercionSequences.EC.Preservation as ECP
-open import LambdaAlphaRefStar.Theories.CoercionSequences.Meta.Definition
+import Theories.CoercionSequences.Code.Definition as OC
+import Theories.CoercionSequences.Code.Preservation as OCP
+import Theories.CoercionSequences.EC.Definition as ECS
+import Theories.CoercionSequences.EC.Preservation as ECP
+open import Theories.CoercionSequences.Meta.Definition
 
 
 wf-domᵉ : ∀ {Δ Θ cᵉ ê₁ ê₂}

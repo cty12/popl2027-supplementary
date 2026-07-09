@@ -1,18 +1,18 @@
-module LambdaAlphaRefStar.Theories.SpaceEfficiency.Proofs.SubCtxWeakening where
+module Theories.SpaceEfficiency.Proofs.SubCtxWeakening where
 
 open import Data.List using (List; []; _∷_; map)
 open import Data.Nat using (suc; s≤s)
 open import Data.Product using (_×_; ∃-syntax) renaming (_,_ to ⟨_,_⟩)
 open import Relation.Binary.PropositionalEquality using (refl; subst)
 
-open import Utils using
+open import Theories.Utils using
   (_∋_; _∋_⦂_; _⊆_; Z; S_; here; there; ∋-∷ʳ; ∋-∷ʳ-last; ∋-snoc-last; lookup-snoc;
   member-map; member-map-inv; member-map-drop; member-map-drop-inv;
   drop-snoc; drop-snoc-last; ⟨_,_,_,_⟩)
-open import LambdaAlphaRefStar.Theories.SpaceEfficiency.CCAlphaRefStarSyntaxAndTypeSystem
+open import Theories.SpaceEfficiency.CCAlphaRefStarSyntaxAndTypeSystem
 
-import LambdaAlphaRefStar.Theories.SpaceEfficiency.ECHypercoercions as EH
-import LambdaAlphaRefStar.Theories.SpaceEfficiency.MetaHypercoercions as MH
+import Theories.SpaceEfficiency.ECHypercoercions as EH
+import Theories.SpaceEfficiency.MetaHypercoercions as MH
 
 private
 

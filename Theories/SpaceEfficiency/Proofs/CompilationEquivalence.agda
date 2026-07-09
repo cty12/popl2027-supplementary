@@ -1,12 +1,12 @@
-module LambdaAlphaRefStar.Theories.SpaceEfficiency.Proofs.CompilationEquivalence where
+module Theories.SpaceEfficiency.Proofs.CompilationEquivalence where
 
 open import Data.Product using (Σ-syntax) renaming (_,_ to ⟨_,_⟩)
 open import Relation.Binary.PropositionalEquality using (_≡_; refl)
 
-open import LambdaAlphaRefStar.Theories.SurfaceSyntaxAndTypeSystem
-open import LambdaAlphaRefStar.Theories.SpaceEfficiency.CCAlphaRefStarSyntaxAndTypeSystem
-open import LambdaAlphaRefStar.Theories.SpaceEfficiency.Elaboration
-open import LambdaAlphaRefStar.Theories.SpaceEfficiency.Compilation
+open import Theories.SurfaceSyntaxAndTypeSystem
+open import Theories.SpaceEfficiency.CCAlphaRefStarSyntaxAndTypeSystem
+open import Theories.SpaceEfficiency.Elaboration
+open import Theories.SpaceEfficiency.Compilation
 
 
 mutual

@@ -1,12 +1,12 @@
-module LambdaAlphaRefStar.Theories.SpaceEfficiency.Proofs.ElaborationEfficient where
+module Theories.SpaceEfficiency.Proofs.ElaborationEfficient where
 
 open import Data.Bool using (Bool; true)
 open import Data.Nat using (ℕ; zero; suc; _≤_; z≤n; s≤s)
 open import Data.Product using (∃-syntax; _×_) renaming (_,_ to ⟨_,_⟩)
 
-open import LambdaAlphaRefStar.Theories.SpaceEfficiency.CCAlphaRefStarSyntaxAndTypeSystem
-open import LambdaAlphaRefStar.Theories.SpaceEfficiency.Elaboration
-open import LambdaAlphaRefStar.Theories.SpaceEfficiency.Proofs.PreserveOK
+open import Theories.SpaceEfficiency.CCAlphaRefStarSyntaxAndTypeSystem
+open import Theories.SpaceEfficiency.Elaboration
+open import Theories.SpaceEfficiency.Proofs.PreserveOK
   using
     (_⊢ᵒ_ok; _∣_⊢ᵐ_ok; cast-pres-ok;
      spliceOK; constᵒOK; varᵒOK; absᵒOK; appᵒOK;

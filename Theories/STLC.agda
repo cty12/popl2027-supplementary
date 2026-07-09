@@ -1,11 +1,11 @@
-module LambdaAlphaRefStar.Theories.STLC where
+module Theories.STLC where
 
 open import Data.List using (List; _∷_)
 open import Data.Nat using (ℕ)
 
-open import Utils using (_∋_⦂_)
-open import LambdaAlphaRefStar.Theories.BaseTypes using (base-rep)
-open import LambdaAlphaRefStar.Theories.CodeTypes using (OType; `_ ; _⇒_)
+open import Theories.Utils using (_∋_⦂_)
+open import Theories.BaseTypes using (base-rep)
+open import Theories.CodeTypes using (OType; `_ ; _⇒_)
 
 
 -- | Ordinary STLC terms.

@@ -1,10 +1,10 @@
-module LambdaAlphaRefStar.Theories.Configurations where
+module Theories.Configurations where
 
 open import Data.List.Relation.Unary.All using ([])
-open import Utils using (_≼_; ∅; ⟨_,_,_,_⟩)
-open import LambdaAlphaRefStar.Theories.CCAlphaRefStarSyntaxAndTypeSystem
-open import LambdaAlphaRefStar.Theories.ECCtxWeakening using (_⊆ᵉ_)
-open import LambdaAlphaRefStar.Theories.Heap
+open import Theories.Utils using (_≼_; ∅; ⟨_,_,_,_⟩)
+open import Theories.CCAlphaRefStarSyntaxAndTypeSystem
+open import Theories.ECCtxWeakening using (_⊆ᵉ_)
+open import Theories.Heap
 
 
 -- | Runtime configurations shared by code and meta reduction.

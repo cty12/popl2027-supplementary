@@ -3,27 +3,27 @@
   Small-step semantics for the cast calculus of λαRef⋆ with
   space-efficient hypercoercions.
 
-  This mirrors LambdaAlphaRefStar.Theories.CCAlphaRefStarSemantics, but the
+  This mirrors Theories.CCAlphaRefStarSemantics, but the
   raw term syntax comes from the space-efficient extrinsic type-system module
   and casts carry meta hypercoercions.
 
 -}
 
-module LambdaAlphaRefStar.Theories.SpaceEfficiency.CCAlphaRefStarSemantics where
+module Theories.SpaceEfficiency.CCAlphaRefStarSemantics where
 
 open import Data.List using (_∷ʳ_; length)
 open import Data.Nat using (zero; suc)
 open import Data.Unit using (tt)
 open import Relation.Nullary using (¬_)
 
-open import Utils using (_∋_⦂_)
-open import LambdaAlphaRefStar.Theories.SpaceEfficiency.CCAlphaRefStarSyntaxAndTypeSystem
-open import LambdaAlphaRefStar.Theories.SpaceEfficiency.Configuration public
-open import LambdaAlphaRefStar.Theories.Heap using (_⟦_↦_⟧=_) public
+open import Theories.Utils using (_∋_⦂_)
+open import Theories.SpaceEfficiency.CCAlphaRefStarSyntaxAndTypeSystem
+open import Theories.SpaceEfficiency.Configuration public
+open import Theories.Heap using (_⟦_↦_⟧=_) public
 
-open import LambdaAlphaRefStar.Theories.SpaceEfficiency.ECHypercoercions
-open import LambdaAlphaRefStar.Theories.SpaceEfficiency.ObjectHypercoercions
-open import LambdaAlphaRefStar.Theories.SpaceEfficiency.MetaHypercoercions
+open import Theories.SpaceEfficiency.ECHypercoercions
+open import Theories.SpaceEfficiency.ObjectHypercoercions
+open import Theories.SpaceEfficiency.MetaHypercoercions
 
 
 -- +-----------------------------+ --

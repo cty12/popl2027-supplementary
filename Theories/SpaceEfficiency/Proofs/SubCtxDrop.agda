@@ -1,12 +1,12 @@
-module LambdaAlphaRefStar.Theories.SpaceEfficiency.Proofs.SubCtxDrop where
+module Theories.SpaceEfficiency.Proofs.SubCtxDrop where
 
 open import Data.Product using () renaming (_,_ to ⟨_,_⟩)
 
-open import Utils using (_⊆_; Z; S_; ⟨_,_,_,_⟩)
-open import LambdaAlphaRefStar.Theories.SpaceEfficiency.CCAlphaRefStarSyntaxAndTypeSystem
-open import LambdaAlphaRefStar.Theories.SpaceEfficiency.Proofs.SubCtxWeakening
+open import Theories.Utils using (_⊆_; Z; S_; ⟨_,_,_,_⟩)
+open import Theories.SpaceEfficiency.CCAlphaRefStarSyntaxAndTypeSystem
+open import Theories.SpaceEfficiency.Proofs.SubCtxWeakening
   using (mhc-⊆ˢ; meta-⊆ˢ)
-import LambdaAlphaRefStar.Theories.SpaceEfficiency.MetaHypercoercions as MH
+import Theories.SpaceEfficiency.MetaHypercoercions as MH
 
 
 -- | If the subtyping is already implied, we can drop it from the context.

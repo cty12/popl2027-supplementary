@@ -1,17 +1,17 @@
-module LambdaAlphaRefStar.Theories.Heap where
+module Theories.Heap where
 
 open import Data.List using (List; []; _∷_; _∷ʳ_; length)
 open import Data.Nat using (ℕ; zero; suc)
 
-open import Utils using (_∋_⦂_; ∅; ⟨_,_,_,_⟩)
-import Utils as U
-open import LambdaAlphaRefStar.Theories.CCAlphaRefStarSyntaxAndTypeSystem
-open import LambdaAlphaRefStar.Theories.CodeCtxWeakening
+open import Theories.Utils using (_∋_⦂_; ∅; ⟨_,_,_,_⟩)
+import Theories.Utils as U
+open import Theories.CCAlphaRefStarSyntaxAndTypeSystem
+open import Theories.CodeCtxWeakening
   using (meta-octx-weaken)
-open import LambdaAlphaRefStar.Theories.ECCtxWeakening
+open import Theories.ECCtxWeakening
   using (_⊆ᵉ_; ⊆ᵉ-snoc; meta-ecctx-weaken)
-open import LambdaAlphaRefStar.Theories.HeapCtxWeakening
-open import LambdaAlphaRefStar.Theories.SubCtxWeakening
+open import Theories.HeapCtxWeakening
+open import Theories.SubCtxWeakening
   using (subctx-lex-weaken; subctx-global-weaken; meta-⊆ˢ)
 
 

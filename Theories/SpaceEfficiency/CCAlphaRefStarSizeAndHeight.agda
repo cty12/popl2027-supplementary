@@ -1,14 +1,14 @@
-module LambdaAlphaRefStar.Theories.SpaceEfficiency.CCAlphaRefStarSizeAndHeight where
+module Theories.SpaceEfficiency.CCAlphaRefStarSizeAndHeight where
 
 open import Data.List using ([]; _∷_)
 open import Data.Nat using (ℕ; zero; suc; _+_; _≤_; _⊔_; z≤n; s≤s)
 open import Data.Nat.Properties using (≤-refl)
 
-open import LambdaAlphaRefStar.Theories.SpaceEfficiency.CCAlphaRefStarSyntaxAndTypeSystem hiding (size)
-open import LambdaAlphaRefStar.Theories.SpaceEfficiency.Configuration
-open import LambdaAlphaRefStar.Theories.SpaceEfficiency.ECHypercoercions
-open import LambdaAlphaRefStar.Theories.SpaceEfficiency.ObjectHypercoercions
-open import LambdaAlphaRefStar.Theories.SpaceEfficiency.MetaHypercoercions
+open import Theories.SpaceEfficiency.CCAlphaRefStarSyntaxAndTypeSystem hiding (size)
+open import Theories.SpaceEfficiency.Configuration
+open import Theories.SpaceEfficiency.ECHypercoercions
+open import Theories.SpaceEfficiency.ObjectHypercoercions
+open import Theories.SpaceEfficiency.MetaHypercoercions
 
 
 ec-hc-height : ECHypercoercion → ℕ

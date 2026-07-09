@@ -1,4 +1,4 @@
-module LambdaAlphaRefStar.Theories.MetaTypes where
+module Theories.MetaTypes where
 
 open import Data.List using (List; []; _∷_; _∷ʳ_; map) public
 open import Data.List.Relation.Unary.All using (All)
@@ -6,10 +6,10 @@ open import Data.Product using (∃-syntax; _×_) renaming (_,_ to ⟨_,_⟩)
 open import Relation.Binary.PropositionalEquality using (_≡_; refl)
 open import Relation.Nullary using (Dec; yes; no)
 
-open import Utils using (_∋_⦂_; here; there; ⟨_,_,_⟩)
-open import LambdaAlphaRefStar.Theories.EnvClassifiers
-open import LambdaAlphaRefStar.Theories.BaseTypes
-open import LambdaAlphaRefStar.Theories.CodeTypes
+open import Theories.Utils using (_∋_⦂_; here; there; ⟨_,_,_⟩)
+open import Theories.EnvClassifiers
+open import Theories.BaseTypes
+open import Theories.CodeTypes
 
 infixr 6 _⇒_
 

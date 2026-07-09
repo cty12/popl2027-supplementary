@@ -1,10 +1,10 @@
-module LambdaAlphaRefStar.Theories.SpaceEfficiency.AdjacentCastOK where
+module Theories.SpaceEfficiency.AdjacentCastOK where
 
 open import Data.Bool using (Bool; true; false)
 open import Data.Nat using (ℕ; zero; suc; _≤_)
 
-open import LambdaAlphaRefStar.Theories.BaseTypes
-open import LambdaAlphaRefStar.Theories.SpaceEfficiency.CCAlphaRefStarSyntaxAndTypeSystem
+open import Theories.BaseTypes
+open import Theories.SpaceEfficiency.CCAlphaRefStarSyntaxAndTypeSystem
 
 
 infix 3 _⊢ᵒ_ok

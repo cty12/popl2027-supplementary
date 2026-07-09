@@ -1,4 +1,4 @@
-module LambdaAlphaRefStar.Theories.SpaceEfficiency.Proofs.PreserveHeight where
+module Theories.SpaceEfficiency.Proofs.PreserveHeight where
 
 open import Data.Bool using (true; false)
 open import Data.List using ([]; _∷_; _∷ʳ_)
@@ -9,18 +9,18 @@ open import Data.Product using (Σ-syntax; _×_) renaming (_,_ to ⟨_,_⟩)
 
 open Data.Nat.Properties.≤-Reasoning
 
-import Utils as U
-import LambdaAlphaRefStar.Theories.Heap as H
+import Theories.Utils as U
+import Theories.Heap as H
 
-open import LambdaAlphaRefStar.Theories.SpaceEfficiency.CCAlphaRefStarSyntaxAndTypeSystem
-open import LambdaAlphaRefStar.Theories.SpaceEfficiency.CCAlphaRefStarSemantics
-open import LambdaAlphaRefStar.Theories.SpaceEfficiency.Configuration
-open import LambdaAlphaRefStar.Theories.SpaceEfficiency.CCAlphaRefStarSizeAndHeight
-open import LambdaAlphaRefStar.Theories.SpaceEfficiency.ECHypercoercions
-open import LambdaAlphaRefStar.Theories.SpaceEfficiency.ObjectHypercoercions
-open import LambdaAlphaRefStar.Theories.SpaceEfficiency.MetaHypercoercions
-open import LambdaAlphaRefStar.Theories.SpaceEfficiency.Proofs.LeastUpperBoundLemmas
-open import LambdaAlphaRefStar.Theories.SpaceEfficiency.Proofs.HypercoercionCompositionBounded
+open import Theories.SpaceEfficiency.CCAlphaRefStarSyntaxAndTypeSystem
+open import Theories.SpaceEfficiency.CCAlphaRefStarSemantics
+open import Theories.SpaceEfficiency.Configuration
+open import Theories.SpaceEfficiency.CCAlphaRefStarSizeAndHeight
+open import Theories.SpaceEfficiency.ECHypercoercions
+open import Theories.SpaceEfficiency.ObjectHypercoercions
+open import Theories.SpaceEfficiency.MetaHypercoercions
+open import Theories.SpaceEfficiency.Proofs.LeastUpperBoundLemmas
+open import Theories.SpaceEfficiency.Proofs.HypercoercionCompositionBounded
   using (compose-height-meta)
 
 heap-lookup-height : ∀ {μ a V}

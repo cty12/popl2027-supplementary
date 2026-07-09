@@ -1,8 +1,8 @@
-module LambdaAlphaRefStar.Theories.Values where
+module Theories.Values where
 
-open import Utils using (⟨_,_,_,_⟩)
-open import LambdaAlphaRefStar.Theories.CCAlphaRefStarSyntaxAndTypeSystem
-open import LambdaAlphaRefStar.Theories.CoercionSequences.Meta.Definition using (Inert)
+open import Theories.Utils using (⟨_,_,_,_⟩)
+open import Theories.CCAlphaRefStarSyntaxAndTypeSystem
+open import Theories.CoercionSequences.Meta.Definition using (Inert)
 
 
 -- | Code language values (Vᵒ).

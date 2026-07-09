@@ -1,19 +1,19 @@
-module LambdaAlphaRefStar.Theories.CoercePreserves where
+module Theories.CoercePreserves where
 
-open import LambdaAlphaRefStar.Theories.BlameLabels
-open import LambdaAlphaRefStar.Theories.EnvClassifiers
-open import LambdaAlphaRefStar.Theories.CodeTypes
-open import LambdaAlphaRefStar.Theories.MetaTypes
-open import LambdaAlphaRefStar.Theories.ConsistentSubtyping
-open import LambdaAlphaRefStar.Theories.Coerce
-open import LambdaAlphaRefStar.Theories.CoercionSequences.EC.Definition using (_;_⊢ᵉ̅_⦂_⇒_)
-open import LambdaAlphaRefStar.Theories.CoercionSequences.Code.Definition using (⊢ᵒ̅_⦂_⇒_)
-open import LambdaAlphaRefStar.Theories.CoercionSequences.Meta.Definition using (_;_⊢ᵐ̅_⦂_⇒_)
-import LambdaAlphaRefStar.Theories.CoercionSequences.EC.Definition as EC
-import LambdaAlphaRefStar.Theories.CoercionSequences.Code.Definition as OC
-import LambdaAlphaRefStar.Theories.CoercionSequences.Meta.Definition as MC
-import LambdaAlphaRefStar.Theories.CoercionSequences.Code.Preservation as OCP
-import LambdaAlphaRefStar.Theories.CoercionSequences.Meta.Preservation as MCP
+open import Theories.BlameLabels
+open import Theories.EnvClassifiers
+open import Theories.CodeTypes
+open import Theories.MetaTypes
+open import Theories.ConsistentSubtyping
+open import Theories.Coerce
+open import Theories.CoercionSequences.EC.Definition using (_;_⊢ᵉ̅_⦂_⇒_)
+open import Theories.CoercionSequences.Code.Definition using (⊢ᵒ̅_⦂_⇒_)
+open import Theories.CoercionSequences.Meta.Definition using (_;_⊢ᵐ̅_⦂_⇒_)
+import Theories.CoercionSequences.EC.Definition as EC
+import Theories.CoercionSequences.Code.Definition as OC
+import Theories.CoercionSequences.Meta.Definition as MC
+import Theories.CoercionSequences.Code.Preservation as OCP
+import Theories.CoercionSequences.Meta.Preservation as MCP
 
 
 coerceᵉ-preserves : ∀ {Δ Θ ê ê′ ℓ}

@@ -1,5 +1,5 @@
-module LambdaAlphaRefStar.Theories.CoercionEquationalTheory.Properties where
+module Theories.CoercionEquationalTheory.Properties where
 
-open import LambdaAlphaRefStar.Theories.CoercionEquationalTheory.EC.Preservation  public
-open import LambdaAlphaRefStar.Theories.CoercionEquationalTheory.Code.Preservation public
-open import LambdaAlphaRefStar.Theories.CoercionEquationalTheory.Meta.Preservation public
+open import Theories.CoercionEquationalTheory.EC.Preservation  public
+open import Theories.CoercionEquationalTheory.Code.Preservation public
+open import Theories.CoercionEquationalTheory.Meta.Preservation public

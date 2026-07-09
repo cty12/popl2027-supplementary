@@ -1,9 +1,9 @@
-module LambdaAlphaRefStar.Theories.CoercionEquationalTheory.EC.Preservation where
+module Theories.CoercionEquationalTheory.EC.Preservation where
 
 open import Data.Product using (_×_) renaming (_,_ to ⟨_,_⟩)
 
-open import LambdaAlphaRefStar.Theories.CoercionEquationalTheory.EC.SyntaxAndTyping
-open import LambdaAlphaRefStar.Theories.CoercionEquationalTheory.EC.Semantics
+open import Theories.CoercionEquationalTheory.EC.SyntaxAndTyping
+open import Theories.CoercionEquationalTheory.EC.Semantics
 
 
 private

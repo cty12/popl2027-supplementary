@@ -1,4 +1,4 @@
-module LambdaAlphaRefStar.Theories.BlameLabels where
+module Theories.BlameLabels where
 
 open import Data.Nat using (ℕ)
 

@@ -1,4 +1,4 @@
-module LambdaAlphaRefStar.Theories.CoercionSequences.Meta.Termination where
+module Theories.CoercionSequences.Meta.Termination where
 
 open import Data.List using ([]; _∷_; _++_)
 open import Data.Nat using (ℕ; zero; suc; _+_; _≤_; _<_; z≤n; s≤s)
@@ -12,14 +12,14 @@ open import Data.Product using (_×_; ∃-syntax) renaming (_,_ to ⟨_,_⟩)
 open import Induction.WellFounded using (Acc; acc)
 open import Relation.Binary.PropositionalEquality using (_≡_; refl; sym; subst)
 
-import LambdaAlphaRefStar.Theories.CoercionSequences.Code.Definition as OC
-import LambdaAlphaRefStar.Theories.CoercionSequences.Code.Termination as OCT
-import LambdaAlphaRefStar.Theories.CoercionSequences.EC.Definition as ECS
-import LambdaAlphaRefStar.Theories.CoercionSequences.EC.Termination as ECT
-open import LambdaAlphaRefStar.Theories.CoercionSequences.Meta.Definition
-open import LambdaAlphaRefStar.Theories.CoercionSequences.Meta.Progress
+import Theories.CoercionSequences.Code.Definition as OC
+import Theories.CoercionSequences.Code.Termination as OCT
+import Theories.CoercionSequences.EC.Definition as ECS
+import Theories.CoercionSequences.EC.Termination as ECT
+open import Theories.CoercionSequences.Meta.Definition
+open import Theories.CoercionSequences.Meta.Progress
   using (Progress; progress)
-open import LambdaAlphaRefStar.Theories.CoercionSequences.Meta.Preservation
+open import Theories.CoercionSequences.Meta.Preservation
   using (preserve)
 
 

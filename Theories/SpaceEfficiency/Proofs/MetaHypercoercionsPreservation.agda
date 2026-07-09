@@ -1,15 +1,15 @@
-module LambdaAlphaRefStar.Theories.SpaceEfficiency.Proofs.MetaHypercoercionsPreservation where
+module Theories.SpaceEfficiency.Proofs.MetaHypercoercionsPreservation where
 
-open import LambdaAlphaRefStar.Theories.EnvClassifiers
-open import LambdaAlphaRefStar.Theories.MetaTypes
-open import LambdaAlphaRefStar.Theories.SpaceEfficiency.MetaHypercoercions
+open import Theories.EnvClassifiers
+open import Theories.MetaTypes
+open import Theories.SpaceEfficiency.MetaHypercoercions
 open import Relation.Binary.PropositionalEquality using (refl)
 open import Relation.Nullary using (yes; no)
 
-import LambdaAlphaRefStar.Theories.SpaceEfficiency.ECHypercoercions as EHC
-import LambdaAlphaRefStar.Theories.SpaceEfficiency.ObjectHypercoercions as OHC
-import LambdaAlphaRefStar.Theories.SpaceEfficiency.Proofs.ECHypercoercionsPreservation as EHCP
-import LambdaAlphaRefStar.Theories.SpaceEfficiency.Proofs.ObjectHypercoercionsPreservation as OHCP
+import Theories.SpaceEfficiency.ECHypercoercions as EHC
+import Theories.SpaceEfficiency.ObjectHypercoercions as OHC
+import Theories.SpaceEfficiency.Proofs.ECHypercoercionsPreservation as EHCP
+import Theories.SpaceEfficiency.Proofs.ObjectHypercoercionsPreservation as OHCP
 
 
 -- Composition preserves extrinsic typing.

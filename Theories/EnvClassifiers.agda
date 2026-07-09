@@ -1,4 +1,4 @@
-module LambdaAlphaRefStar.Theories.EnvClassifiers where
+module Theories.EnvClassifiers where
 
 open import Data.List using (List; []; _∷_; _∷ʳ_; drop; length; map)
 open import Data.List.Relation.Unary.All using (All) renaming ([] to []ᴬ; _∷_ to _∷ᴬ_)
@@ -12,7 +12,7 @@ open import Relation.Nullary using (¬_; Dec; yes; no)
 open import Relation.Nullary.Negation using (contradiction)
 open import Function using (case_of_)
 
-open import Utils using (_∋_; _∋_⦂_; _⊆_; Z; S_; length-∷ʳ; length-map; member-snoc-inv; ⟨_,_,_⟩)
+open import Theories.Utils using (_∋_; _∋_⦂_; _⊆_; Z; S_; length-∷ʳ; length-map; member-snoc-inv; ⟨_,_,_⟩)
 
 
 -- | Environment classifier contexts.

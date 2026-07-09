@@ -1,4 +1,4 @@
-module LambdaAlphaRefStar.Theories.CodeTypes where
+module Theories.CodeTypes where
 
 open import Data.List using (List; []; _∷_; _∷ʳ_; drop; length; map)
 open import Data.List.Relation.Unary.All using (All) renaming ([] to []ᴬ; _∷_ to _∷ᴬ_; map to All-map)
@@ -14,10 +14,10 @@ open import Relation.Binary.PropositionalEquality using (_≡_; _≢_; refl; sub
 open import Relation.Nullary using (Dec; yes; no)
 open import Relation.Nullary.Negation using (contradiction)
 
-open import Utils using (_∋_; _∋_⦂_; _⊆_; _≼_; ≼-refl; ≼-snoc; Z; S_; here; there;
+open import Theories.Utils using (_∋_; _∋_⦂_; _⊆_; _≼_; ≼-refl; ≼-snoc; Z; S_; here; there;
   drop-snoc; length-map; length-∷ʳ; lookup->member; lookup-snoc-inv; member->lookup; ⟨_,_,_⟩)
-open import LambdaAlphaRefStar.Theories.EnvClassifiers
-open import LambdaAlphaRefStar.Theories.BaseTypes using (Base; base-eq?)
+open import Theories.EnvClassifiers
+open import Theories.BaseTypes using (Base; base-eq?)
 
 infixr 6 _⇒_
 

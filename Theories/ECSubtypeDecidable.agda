@@ -1,4 +1,4 @@
-module LambdaAlphaRefStar.Theories.ECSubtypeDecidable where
+module Theories.ECSubtypeDecidable where
 
 open import Data.List using (List; []; _∷_; length)
 open import Data.Nat using (ℕ; zero; suc; _≤_; s≤s)
@@ -12,8 +12,8 @@ open import Relation.Nullary using (Dec; yes; no; ¬_)
 open import Relation.Nullary.Negation using (contradiction)
 open import Function using (case_of_)
 
-open import Utils using (_∋_; Z; S_; _⊆_; member?; NoDup; subset-length)
-open import LambdaAlphaRefStar.Theories.EnvClassifiers
+open import Theories.Utils using (_∋_; Z; S_; _⊆_; member?; NoDup; subset-length)
+open import Theories.EnvClassifiers
 
 {-
      Path -> "remove-cycles" -> AcyclicPath -> "acyclic->bounded" -> BoundedPath

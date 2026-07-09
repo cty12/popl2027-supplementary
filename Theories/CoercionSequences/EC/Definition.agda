@@ -1,12 +1,12 @@
-module LambdaAlphaRefStar.Theories.CoercionSequences.EC.Definition where
+module Theories.CoercionSequences.EC.Definition where
 
 open import Data.List using (List; []; _∷_; _++_; [_])
 open import Data.Product using (∃-syntax)
 open import Relation.Binary.PropositionalEquality using (_≡_; _≢_)
 open import Relation.Nullary using (¬_)
 
-open import LambdaAlphaRefStar.Theories.EnvClassifiers public
-open import LambdaAlphaRefStar.Theories.BlameLabels     public
+open import Theories.EnvClassifiers public
+open import Theories.BlameLabels     public
 
 
 infix 9 _！

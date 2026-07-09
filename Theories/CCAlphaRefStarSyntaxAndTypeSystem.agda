@@ -4,7 +4,7 @@
 
 -}
 
-module LambdaAlphaRefStar.Theories.CCAlphaRefStarSyntaxAndTypeSystem where
+module Theories.CCAlphaRefStarSyntaxAndTypeSystem where
 
 open import Data.List using (List; []; _∷_; _∷ʳ_)
 open import Data.Maybe using (just)
@@ -12,13 +12,13 @@ open import Data.Nat using (ℕ; zero; suc)
 open import Data.Product using (_×_) renaming (_,_ to ⟨_,_⟩)
 open import Relation.Binary.PropositionalEquality using (_≡_; refl)
 
-open import Utils using (_∋_; _∋_⦂_; Z; S_; here; there; ∅; ⟨_,_,_,_⟩)
-open import LambdaAlphaRefStar.Theories.EnvClassifiers public
-open import LambdaAlphaRefStar.Theories.BaseTypes      public
-open import LambdaAlphaRefStar.Theories.MetaTypes      public
-open import LambdaAlphaRefStar.Theories.CodeTypes      public
-open import LambdaAlphaRefStar.Theories.BlameLabels    public
-import LambdaAlphaRefStar.Theories.CoercionSequences.Meta.Definition as MC
+open import Theories.Utils using (_∋_; _∋_⦂_; Z; S_; here; there; ∅; ⟨_,_,_,_⟩)
+open import Theories.EnvClassifiers public
+open import Theories.BaseTypes      public
+open import Theories.MetaTypes      public
+open import Theories.CodeTypes      public
+open import Theories.BlameLabels    public
+import Theories.CoercionSequences.Meta.Definition as MC
 
 
 Var Addr : Set

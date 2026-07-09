@@ -1,4 +1,4 @@
-module LambdaAlphaRefStar.Theories.CanonicalForms where
+module Theories.CanonicalForms where
 
 open import Data.List using ([]; _∷_; [_]; _++_)
 open import Data.Maybe using (Maybe; just; nothing)
@@ -7,13 +7,13 @@ open import Relation.Binary.PropositionalEquality using (_≡_; refl)
 open import Relation.Nullary using (¬_)
 open import Relation.Nullary.Negation using (contradiction)
 
-open import Utils using (_∋_⦂_; ⟨_,_,_,_⟩)
-open import LambdaAlphaRefStar.Theories.CCAlphaRefStarSyntaxAndTypeSystem
-open import LambdaAlphaRefStar.Theories.Values
-import LambdaAlphaRefStar.Theories.CoercionSequences.Meta.Definition as MC
-open import LambdaAlphaRefStar.Theories.CoercionSequences.Meta.Definition using (Inert)
-import LambdaAlphaRefStar.Theories.CoercionSequences.Code.Definition as OC
-import LambdaAlphaRefStar.Theories.CoercionSequences.EC.Definition as ECS
+open import Theories.Utils using (_∋_⦂_; ⟨_,_,_,_⟩)
+open import Theories.CCAlphaRefStarSyntaxAndTypeSystem
+open import Theories.Values
+import Theories.CoercionSequences.Meta.Definition as MC
+open import Theories.CoercionSequences.Meta.Definition using (Inert)
+import Theories.CoercionSequences.Code.Definition as OC
+import Theories.CoercionSequences.EC.Definition as ECS
 
 
 data CanonicalFun : MetaTerm → Set where

@@ -1,4 +1,4 @@
-module LambdaAlphaRefStar.Theories.BaseTypes where
+module Theories.BaseTypes where
 
   open import Data.Nat     using (ℕ; zero; suc)
   open import Data.Bool    using (Bool) renaming (_≟_ to _=?_)

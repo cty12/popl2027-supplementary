@@ -1,10 +1,10 @@
-module LambdaAlphaRefStar.Theories.SpaceEfficiency.Configuration where
+module Theories.SpaceEfficiency.Configuration where
 
 open import Data.List using (List)
-open import Utils using (∅; ⟨_,_,_,_⟩)
-open import LambdaAlphaRefStar.Theories.ECCtxWeakening using (_⊆ᵉ_)
-open import LambdaAlphaRefStar.Theories.SpaceEfficiency.CCAlphaRefStarSyntaxAndTypeSystem
-open import LambdaAlphaRefStar.Theories.SpaceEfficiency.Proofs.Heap
+open import Theories.Utils using (∅; ⟨_,_,_,_⟩)
+open import Theories.ECCtxWeakening using (_⊆ᵉ_)
+open import Theories.SpaceEfficiency.CCAlphaRefStarSyntaxAndTypeSystem
+open import Theories.SpaceEfficiency.Proofs.Heap
   using (_;_;_;_⊢ᴴ_)
 
 

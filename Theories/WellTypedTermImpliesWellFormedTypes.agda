@@ -1,13 +1,13 @@
-module LambdaAlphaRefStar.Theories.WellTypedTermImpliesWellFormedTypes where
+module Theories.WellTypedTermImpliesWellFormedTypes where
 
 open import Data.List using (List; []; _∷_; map)
 open import Data.List.Relation.Unary.All using (All) renaming ([] to []ᴬ; _∷_ to _∷ᴬ_)
 open import Data.Product using (Σ-syntax; _×_; proj₁; proj₂) renaming (_,_ to ⟨_,_⟩)
 open import Relation.Binary.PropositionalEquality using (_≡_; refl; subst; cong; trans) renaming (sym to ≡-sym)
 
-open import Utils using (_∋_; _∋_⦂_; member-map-drop-inv; here; there)
-open import LambdaAlphaRefStar.Theories.CCAlphaRefStarSyntaxAndTypeSystem
-open import LambdaAlphaRefStar.Theories.CoercionSequences.Meta.Preservation as MCP using (wf-codᵐ̅)
+open import Theories.Utils using (_∋_; _∋_⦂_; member-map-drop-inv; here; there)
+open import Theories.CCAlphaRefStarSyntaxAndTypeSystem
+open import Theories.CoercionSequences.Meta.Preservation as MCP using (wf-codᵐ̅)
 
 
 -- +--------------------------------+ --

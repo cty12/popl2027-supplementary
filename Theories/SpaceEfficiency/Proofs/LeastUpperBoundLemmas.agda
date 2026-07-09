@@ -1,4 +1,4 @@
-module LambdaAlphaRefStar.Theories.SpaceEfficiency.Proofs.LeastUpperBoundLemmas where
+module Theories.SpaceEfficiency.Proofs.LeastUpperBoundLemmas where
 
 open import Data.Nat using (_≤_; _⊔_)
 open import Data.Nat.Properties using

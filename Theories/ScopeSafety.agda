@@ -1,4 +1,6 @@
-module LambdaAlphaRefStar.Theories.ScopeSafety where
+{-# OPTIONS --rewriting #-}
+
+module Theories.ScopeSafety where
 
 open import Data.Bool using (false; true)
 open import Data.List using ([]; _∷_)
@@ -11,20 +13,20 @@ open import Function using (case_of_)
 open import Relation.Binary.PropositionalEquality using (_≡_; refl)
 open import Relation.Nullary.Negation using (contradiction)
 
-open import Utils using (_∋_; index; ≡ᵇ-refl; ⟨_,_,_⟩; ⟨_,_,_,_⟩; ⟨_,_,_,_,_⟩)
-open import LambdaAlphaRefStar.Theories.CCAlphaRefStarSyntaxAndTypeSystem
-open import LambdaAlphaRefStar.Theories.CCAlphaRefStarSemantics
-open import LambdaAlphaRefStar.Theories.CCAlphaRefStarPreservation using (preserveᵐ)
-open import LambdaAlphaRefStar.Theories.CCAlphaRefStarProgress using (progressᵐ; doneᵐ; blameᵐ; stepᵐ)
-open import LambdaAlphaRefStar.Theories.CanonicalForms using (obs; obs-code)
-open import LambdaAlphaRefStar.Theories.Elaboration using (_;_;_;_⊢_↝_⦂_)
-open import LambdaAlphaRefStar.Theories.ElaborationPreserves using (meta-elab-preserves)
-open import LambdaAlphaRefStar.Theories.Heap using (ht-∅)
-open import LambdaAlphaRefStar.Theories.Reify using (ReifyEnv; reify; reifyAt)
-open import LambdaAlphaRefStar.Theories.ReifyPreserves using (reify-preserves-types)
-open import LambdaAlphaRefStar.Theories.STLC as STLC
+open import Theories.Utils using (_∋_; index; ≡ᵇ-refl; ⟨_,_,_⟩; ⟨_,_,_,_⟩; ⟨_,_,_,_,_⟩)
+open import Theories.CCAlphaRefStarSyntaxAndTypeSystem
+open import Theories.CCAlphaRefStarSemantics
+open import Theories.CCAlphaRefStarPreservation using (preserveᵐ)
+open import Theories.CCAlphaRefStarProgress using (progressᵐ; doneᵐ; blameᵐ; stepᵐ)
+open import Theories.CanonicalForms using (obs; obs-code)
+open import Theories.Elaboration using (_;_;_;_⊢_↝_⦂_)
+open import Theories.ElaborationPreserves using (meta-elab-preserves)
+open import Theories.Heap using (ht-∅)
+open import Theories.Reify using (ReifyEnv; reify; reifyAt)
+open import Theories.ReifyPreserves using (reify-preserves-types)
+open import Theories.STLC as STLC
 
-open import LambdaAlphaRefStar.Theories.ScopeSafetyValue public
+open import Theories.ScopeSafetyValue public
 
 -- | Multi-step meta reduction.
 infix 0 _—↠ᵐ_

@@ -1,4 +1,6 @@
-module LambdaAlphaRefStar.Theories.StaticScopeSafety where
+{-# OPTIONS --rewriting #-}
+
+module Theories.StaticScopeSafety where
 
 open import Data.List using ([])
 open import Data.List.Relation.Unary.All using () renaming ([] to []ᴬ)
@@ -6,17 +8,17 @@ open import Data.Maybe using (just)
 open import Data.Product using (∃-syntax; _×_) renaming (_,_ to ⟨_,_⟩)
 open import Relation.Binary.PropositionalEquality using (_≡_)
 
-open import LambdaAlphaRefStar.Theories.CCAlphaRefStarSyntaxAndTypeSystem
-open import LambdaAlphaRefStar.Theories.CCAlphaRefStarSemantics
-open import LambdaAlphaRefStar.Theories.CCPreservesErrorFree
+open import Theories.CCAlphaRefStarSyntaxAndTypeSystem
+open import Theories.CCAlphaRefStarSemantics
+open import Theories.CCPreservesErrorFree
   using (ErrorFreeConfig; meta-step-error-free-pres; meta-error-free-not-blame)
-open import LambdaAlphaRefStar.Theories.CanonicalForms using (obs)
-open import LambdaAlphaRefStar.Theories.Elaboration using (_;_;_;_⊢_↝_⦂_)
-open import LambdaAlphaRefStar.Theories.ElaborationErrorFree using (meta-elab-error-free)
-open import LambdaAlphaRefStar.Theories.Reify using (reify)
-open import LambdaAlphaRefStar.Theories.ScopeSafety using (_—↠ᵐ_; ↠-refl; ↠-step; scope-safety)
-open import LambdaAlphaRefStar.Theories.STLC as STLC
-open import LambdaAlphaRefStar.Theories.SurfaceFullyStatic using (FullyStaticMetaSurfaceTerm)
+open import Theories.CanonicalForms using (obs)
+open import Theories.Elaboration using (_;_;_;_⊢_↝_⦂_)
+open import Theories.ElaborationErrorFree using (meta-elab-error-free)
+open import Theories.Reify using (reify)
+open import Theories.ScopeSafety using (_—↠ᵐ_; ↠-refl; ↠-step; scope-safety)
+open import Theories.STLC as STLC
+open import Theories.SurfaceFullyStatic using (FullyStaticMetaSurfaceTerm)
 
 
 error-free-preserveᵐ* : ∀ {C₁ C₂}

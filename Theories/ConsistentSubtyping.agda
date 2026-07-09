@@ -1,8 +1,8 @@
-module LambdaAlphaRefStar.Theories.ConsistentSubtyping where
+module Theories.ConsistentSubtyping where
 
-open import LambdaAlphaRefStar.Theories.EnvClassifiers
-open import LambdaAlphaRefStar.Theories.CodeTypes
-open import LambdaAlphaRefStar.Theories.MetaTypes
+open import Theories.EnvClassifiers
+open import Theories.CodeTypes
+open import Theories.MetaTypes
 
 {-
   Consistent subtyping is used in the type system of the surface language.

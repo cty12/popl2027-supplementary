@@ -1,22 +1,22 @@
-module LambdaAlphaRefStar.Theories.CCAlphaRefStarProgress where
+module Theories.CCAlphaRefStarProgress where
 
 open import Data.List using ([]; [_]; _++_)
 open import Data.Product using (∃-syntax) renaming (_,_ to ⟨_,_⟩)
 open import Relation.Binary.PropositionalEquality using (_≡_; refl)
 open import Relation.Nullary using (yes; no)
 
-open import Utils using (_∋_⦂_; ∅; here; there; ⟨_,_,_,_⟩)
-open import LambdaAlphaRefStar.Theories.CCAlphaRefStarSyntaxAndTypeSystem hiding (idᵉ)
-open import LambdaAlphaRefStar.Theories.CCAlphaRefStarSemantics
-open import LambdaAlphaRefStar.Theories.CanonicalForms
-open import LambdaAlphaRefStar.Theories.Configurations
-open import LambdaAlphaRefStar.Theories.ECSubtypeDecidable using (ec-<:?)
-open import LambdaAlphaRefStar.Theories.Heap
-import LambdaAlphaRefStar.Theories.Heap as H
-open import LambdaAlphaRefStar.Theories.Values
-import LambdaAlphaRefStar.Theories.CoercionSequences.Meta.Definition as MC
-open import LambdaAlphaRefStar.Theories.CoercionSequences.Meta.Definition using (Inert)
-import LambdaAlphaRefStar.Theories.CoercionSequences.Meta.Progress as MCP
+open import Theories.Utils using (_∋_⦂_; ∅; here; there; ⟨_,_,_,_⟩)
+open import Theories.CCAlphaRefStarSyntaxAndTypeSystem hiding (idᵉ)
+open import Theories.CCAlphaRefStarSemantics
+open import Theories.CanonicalForms
+open import Theories.Configurations
+open import Theories.ECSubtypeDecidable using (ec-<:?)
+open import Theories.Heap
+import Theories.Heap as H
+open import Theories.Values
+import Theories.CoercionSequences.Meta.Definition as MC
+open import Theories.CoercionSequences.Meta.Definition using (Inert)
+import Theories.CoercionSequences.Meta.Progress as MCP
 
 data CodeProgress (C : Config CodeTerm) (e : EC) : Set where
   stepᵒ : ∀ {C′}

@@ -5,23 +5,23 @@
 
 -}
 
-module LambdaAlphaRefStar.Theories.SpaceEfficiency.CCAlphaRefStarSyntaxAndTypeSystem where
+module Theories.SpaceEfficiency.CCAlphaRefStarSyntaxAndTypeSystem where
 
 open import Data.Nat using (zero)
 open import Data.Product using (_×_) renaming (_,_ to ⟨_,_⟩)
 open import Relation.Binary.PropositionalEquality using (_≡_)
 
-open import Utils using (_∋_; _∋_⦂_; ∅; ⟨_,_,_,_⟩)
-open import LambdaAlphaRefStar.Theories.EnvClassifiers public
-open import LambdaAlphaRefStar.Theories.BaseTypes      public
-open import LambdaAlphaRefStar.Theories.MetaTypes      public
-open import LambdaAlphaRefStar.Theories.CodeTypes      public
-open import LambdaAlphaRefStar.Theories.BlameLabels    public
-open import LambdaAlphaRefStar.Theories.CCAlphaRefStarSyntaxAndTypeSystem
+open import Theories.Utils using (_∋_; _∋_⦂_; ∅; ⟨_,_,_,_⟩)
+open import Theories.EnvClassifiers public
+open import Theories.BaseTypes      public
+open import Theories.MetaTypes      public
+open import Theories.CodeTypes      public
+open import Theories.BlameLabels    public
+open import Theories.CCAlphaRefStarSyntaxAndTypeSystem
   using (Var; Addr; HeapCtx; ⇑ᵉ-heapctx; ⇑ᵉ-heapctx-snoc; Ctx; ⇑ᵉ-ctx;
          _⊢_HeapCtx; _⊢_Ctx; wf-ctx)
   public
-import LambdaAlphaRefStar.Theories.SpaceEfficiency.MetaHypercoercions as MH
+import Theories.SpaceEfficiency.MetaHypercoercions as MH
 open MH using (MHypercoercion) public
 
 

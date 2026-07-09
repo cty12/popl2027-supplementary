@@ -1,17 +1,17 @@
-module LambdaAlphaRefStar.Theories.SubCtxWeakening where
+module Theories.SubCtxWeakening where
 
 open import Data.List using (List; []; _∷_; map)
 open import Data.Nat using (suc; s≤s)
 open import Data.Product using (_×_; ∃-syntax) renaming (_,_ to ⟨_,_⟩)
 open import Relation.Binary.PropositionalEquality using (refl; subst)
 
-open import Utils using
+open import Theories.Utils using
   (_∋_; _∋_⦂_; _⊆_; Z; S_; here; there; ∋-∷ʳ; ∋-∷ʳ-last; ∋-snoc-last; lookup-snoc;
   member-map; member-map-inv; member-map-drop; member-map-drop-inv;
   drop-snoc; drop-snoc-last; ⟨_,_,_,_⟩)
-open import LambdaAlphaRefStar.Theories.CCAlphaRefStarSyntaxAndTypeSystem
-import LambdaAlphaRefStar.Theories.CoercionSequences.EC.Definition as EC
-import LambdaAlphaRefStar.Theories.CoercionSequences.Meta.Definition as MC
+open import Theories.CCAlphaRefStarSyntaxAndTypeSystem
+import Theories.CoercionSequences.EC.Definition as EC
+import Theories.CoercionSequences.Meta.Definition as MC
 
 private
 

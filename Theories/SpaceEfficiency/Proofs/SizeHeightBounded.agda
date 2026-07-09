@@ -1,4 +1,4 @@
-module LambdaAlphaRefStar.Theories.SpaceEfficiency.Proofs.SizeHeightBounded where
+module Theories.SpaceEfficiency.Proofs.SizeHeightBounded where
 
 open import Data.Nat using (ℕ; zero; suc; _+_; _*_; _≤_; _⊔_; z≤n; s≤s)
 open import Data.Nat.Properties using
@@ -9,10 +9,10 @@ open import Relation.Binary.PropositionalEquality using (_≡_; refl; sym)
 
 open Data.Nat.Properties.≤-Reasoning
 
-open import LambdaAlphaRefStar.Theories.SpaceEfficiency.CCAlphaRefStarSizeAndHeight
-open import LambdaAlphaRefStar.Theories.SpaceEfficiency.ECHypercoercions
-open import LambdaAlphaRefStar.Theories.SpaceEfficiency.ObjectHypercoercions
-open import LambdaAlphaRefStar.Theories.SpaceEfficiency.MetaHypercoercions
+open import Theories.SpaceEfficiency.CCAlphaRefStarSizeAndHeight
+open import Theories.SpaceEfficiency.ECHypercoercions
+open import Theories.SpaceEfficiency.ObjectHypercoercions
+open import Theories.SpaceEfficiency.MetaHypercoercions
 
 
 pow2-positive : ∀ n → 1 ≤ pow2 n

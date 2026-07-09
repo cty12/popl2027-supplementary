@@ -1,8 +1,8 @@
-module LambdaAlphaRefStar.Theories.SpaceEfficiency.Proofs.Values where
+module Theories.SpaceEfficiency.Proofs.Values where
 
-open import Utils using (⟨_,_,_,_⟩)
-open import LambdaAlphaRefStar.Theories.SpaceEfficiency.CCAlphaRefStarSyntaxAndTypeSystem
-open import LambdaAlphaRefStar.Theories.SpaceEfficiency.CCAlphaRefStarSemantics
+open import Theories.Utils using (⟨_,_,_,_⟩)
+open import Theories.SpaceEfficiency.CCAlphaRefStarSyntaxAndTypeSystem
+open import Theories.SpaceEfficiency.CCAlphaRefStarSemantics
   using (CodeValue; is-const; is-var; is-lamᵒ-val; is-app)
 
 

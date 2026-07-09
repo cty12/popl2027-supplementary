@@ -1,15 +1,15 @@
-module LambdaAlphaRefStar.Theories.Coerce where
+module Theories.Coerce where
 
 open import Data.List using ([]; [_]; _++_)
 
-open import LambdaAlphaRefStar.Theories.BlameLabels
-open import LambdaAlphaRefStar.Theories.EnvClassifiers
-open import LambdaAlphaRefStar.Theories.CodeTypes
-open import LambdaAlphaRefStar.Theories.MetaTypes
-open import LambdaAlphaRefStar.Theories.ConsistentSubtyping
-import LambdaAlphaRefStar.Theories.CoercionSequences.EC.Definition as ECS
-import LambdaAlphaRefStar.Theories.CoercionSequences.Code.Definition as OC
-import LambdaAlphaRefStar.Theories.CoercionSequences.Meta.Definition as MC
+open import Theories.BlameLabels
+open import Theories.EnvClassifiers
+open import Theories.CodeTypes
+open import Theories.MetaTypes
+open import Theories.ConsistentSubtyping
+import Theories.CoercionSequences.EC.Definition as ECS
+import Theories.CoercionSequences.Code.Definition as OC
+import Theories.CoercionSequences.Meta.Definition as MC
 
 
 -- | Generate an EC coercion sequence from consistent subtyping for EC.

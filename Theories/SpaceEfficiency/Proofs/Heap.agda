@@ -1,19 +1,19 @@
-module LambdaAlphaRefStar.Theories.SpaceEfficiency.Proofs.Heap where
+module Theories.SpaceEfficiency.Proofs.Heap where
 
 open import Data.List using (List; []; _∷_; _∷ʳ_; length)
 open import Data.Nat using (ℕ; zero; suc)
 
-open import Utils using (_∋_⦂_; ∅; ⟨_,_,_,_⟩)
-import Utils as U
-open import LambdaAlphaRefStar.Theories.SpaceEfficiency.CCAlphaRefStarSyntaxAndTypeSystem
-open import LambdaAlphaRefStar.Theories.Heap using (_⟦_↦_⟧=_) public
-import LambdaAlphaRefStar.Theories.Heap as BaseHeap
-open import LambdaAlphaRefStar.Theories.SpaceEfficiency.Proofs.CodeCtxWeakening
+open import Theories.Utils using (_∋_⦂_; ∅; ⟨_,_,_,_⟩)
+import Theories.Utils as U
+open import Theories.SpaceEfficiency.CCAlphaRefStarSyntaxAndTypeSystem
+open import Theories.Heap using (_⟦_↦_⟧=_) public
+import Theories.Heap as BaseHeap
+open import Theories.SpaceEfficiency.Proofs.CodeCtxWeakening
   using (meta-octx-weaken)
-open import LambdaAlphaRefStar.Theories.SpaceEfficiency.Proofs.ECCtxWeakening
+open import Theories.SpaceEfficiency.Proofs.ECCtxWeakening
   using (_⊆ᵉ_; ⊆ᵉ-snoc; meta-ecctx-weaken)
-open import LambdaAlphaRefStar.Theories.SpaceEfficiency.Proofs.HeapCtxWeakening
-open import LambdaAlphaRefStar.Theories.SpaceEfficiency.Proofs.SubCtxWeakening
+open import Theories.SpaceEfficiency.Proofs.HeapCtxWeakening
+open import Theories.SpaceEfficiency.Proofs.SubCtxWeakening
   using (subctx-lex-weaken; subctx-global-weaken; meta-⊆ˢ)
 
 

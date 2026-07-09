@@ -1,15 +1,15 @@
-module LambdaAlphaRefStar.Theories.SpaceEfficiency.MetaHypercoercions where
+module Theories.SpaceEfficiency.MetaHypercoercions where
 
-open import LambdaAlphaRefStar.Theories.EnvClassifiers
-open import LambdaAlphaRefStar.Theories.BlameLabels public
-open import LambdaAlphaRefStar.Theories.BaseTypes using (Base)
-open import LambdaAlphaRefStar.Theories.CodeTypes using (OType⋆)
-open import LambdaAlphaRefStar.Theories.MetaTypes
+open import Theories.EnvClassifiers
+open import Theories.BlameLabels public
+open import Theories.BaseTypes using (Base)
+open import Theories.CodeTypes using (OType⋆)
+open import Theories.MetaTypes
 open import Relation.Binary.PropositionalEquality using (refl)
 open import Relation.Nullary using (Dec; yes; no)
 
-import LambdaAlphaRefStar.Theories.SpaceEfficiency.ECHypercoercions as EHC
-import LambdaAlphaRefStar.Theories.SpaceEfficiency.ObjectHypercoercions as OHC
+import Theories.SpaceEfficiency.ECHypercoercions as EHC
+import Theories.SpaceEfficiency.ObjectHypercoercions as OHC
 
 
 infix 6 _⊢ᵐʰ_⦂_⇒_

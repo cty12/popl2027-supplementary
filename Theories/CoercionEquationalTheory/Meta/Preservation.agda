@@ -1,17 +1,17 @@
-module LambdaAlphaRefStar.Theories.CoercionEquationalTheory.Meta.Preservation where
+module Theories.CoercionEquationalTheory.Meta.Preservation where
 
 open import Data.Product using (_×_) renaming (_,_ to ⟨_,_⟩)
 
-import LambdaAlphaRefStar.Theories.CoercionEquationalTheory.EC.SyntaxAndTyping as EC
-import LambdaAlphaRefStar.Theories.CoercionEquationalTheory.Code.SyntaxAndTyping as OC
-open import LambdaAlphaRefStar.Theories.CoercionEquationalTheory.Meta.SyntaxAndTyping
-open import LambdaAlphaRefStar.Theories.CoercionEquationalTheory.EC.Preservation
+import Theories.CoercionEquationalTheory.EC.SyntaxAndTyping as EC
+import Theories.CoercionEquationalTheory.Code.SyntaxAndTyping as OC
+open import Theories.CoercionEquationalTheory.Meta.SyntaxAndTyping
+open import Theories.CoercionEquationalTheory.EC.Preservation
   using (preserve-≡ᵉ; preserve-⟼ᵉ)
-open import LambdaAlphaRefStar.Theories.CoercionEquationalTheory.Code.Preservation
+open import Theories.CoercionEquationalTheory.Code.Preservation
   using (preserve-≡ᵒ; preserve-⟼ᵒ)
-import LambdaAlphaRefStar.Theories.CoercionEquationalTheory.EC.Semantics as ECS
-import LambdaAlphaRefStar.Theories.CoercionEquationalTheory.Code.Semantics as OCS
-import LambdaAlphaRefStar.Theories.CoercionEquationalTheory.Meta.Semantics as MCS
+import Theories.CoercionEquationalTheory.EC.Semantics as ECS
+import Theories.CoercionEquationalTheory.Code.Semantics as OCS
+import Theories.CoercionEquationalTheory.Meta.Semantics as MCS
 
 
 private

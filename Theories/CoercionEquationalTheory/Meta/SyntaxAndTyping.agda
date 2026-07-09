@@ -1,12 +1,12 @@
-module LambdaAlphaRefStar.Theories.CoercionEquationalTheory.Meta.SyntaxAndTyping where
+module Theories.CoercionEquationalTheory.Meta.SyntaxAndTyping where
 
-open import LambdaAlphaRefStar.Theories.CoercionEquationalTheory.EC.SyntaxAndTyping
+open import Theories.CoercionEquationalTheory.EC.SyntaxAndTyping
   using (ECCoercion; _;_⊢ᵉ_⦂_⇒_; wf-domᵉ; wf-codᵉ)
-open import LambdaAlphaRefStar.Theories.CoercionEquationalTheory.Code.SyntaxAndTyping
+open import Theories.CoercionEquationalTheory.Code.SyntaxAndTyping
   using (OCoercion; ⊢ᵒ_⦂_⇒_)
-open import LambdaAlphaRefStar.Theories.EnvClassifiers public
-open import LambdaAlphaRefStar.Theories.MetaTypes       public
-open import LambdaAlphaRefStar.Theories.BlameLabels     public
+open import Theories.EnvClassifiers public
+open import Theories.MetaTypes       public
+open import Theories.BlameLabels     public
 
 infix 9 _！
 infix 9 _？_

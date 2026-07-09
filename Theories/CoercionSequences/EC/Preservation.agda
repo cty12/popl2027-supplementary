@@ -1,8 +1,8 @@
-module LambdaAlphaRefStar.Theories.CoercionSequences.EC.Preservation where
+module Theories.CoercionSequences.EC.Preservation where
 
 open import Data.List using (_++_)
 
-open import LambdaAlphaRefStar.Theories.CoercionSequences.EC.Definition
+open import Theories.CoercionSequences.EC.Definition
 
 
 wf-domᵉ : ∀ {Δ Θ cᵉ ê₁ ê₂}

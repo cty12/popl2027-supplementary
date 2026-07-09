@@ -1,15 +1,15 @@
-module LambdaAlphaRefStar.Theories.SpaceEfficiency.Elaboration where
+module Theories.SpaceEfficiency.Elaboration where
 
 open import Data.Product renaming (_,_ to ⟨_,_⟩)
 
-open import Utils
-open import LambdaAlphaRefStar.Theories.SurfaceSyntaxAndTypeSystem public
-open import LambdaAlphaRefStar.Theories.ConsistentSubtyping public
-open import LambdaAlphaRefStar.Theories.SpaceEfficiency.CCAlphaRefStarSyntaxAndTypeSystem
+open import Theories.Utils
+open import Theories.SurfaceSyntaxAndTypeSystem public
+open import Theories.ConsistentSubtyping public
+open import Theories.SpaceEfficiency.CCAlphaRefStarSyntaxAndTypeSystem
 
-import LambdaAlphaRefStar.Theories.SpaceEfficiency.ECHypercoercions as EHC
-import LambdaAlphaRefStar.Theories.SpaceEfficiency.ObjectHypercoercions as OHC
-import LambdaAlphaRefStar.Theories.SpaceEfficiency.MetaHypercoercions as MH
+import Theories.SpaceEfficiency.ECHypercoercions as EHC
+import Theories.SpaceEfficiency.ObjectHypercoercions as OHC
+import Theories.SpaceEfficiency.MetaHypercoercions as MH
 
 infix 3 _;_;_;_;_⊢_↝_⭆_
 infix 3 _;_;_;_;_⊢_↝_⭅_

@@ -1,20 +1,20 @@
-module LambdaAlphaRefStar.Theories.CoercionEquationalTheory.Meta.Semantics where
+module Theories.CoercionEquationalTheory.Meta.Semantics where
 
 open import Data.Product using (∃-syntax; _×_) renaming (_,_ to ⟨_,_⟩)
 open import Relation.Binary.PropositionalEquality using (_≢_)
 open import Relation.Nullary using (¬_)
 
-open import LambdaAlphaRefStar.Theories.CoercionEquationalTheory.EC.SyntaxAndTyping
+open import Theories.CoercionEquationalTheory.EC.SyntaxAndTyping
   using (ECCoercion)
-open import LambdaAlphaRefStar.Theories.CoercionEquationalTheory.Code.SyntaxAndTyping
+open import Theories.CoercionEquationalTheory.Code.SyntaxAndTyping
   using (OCoercion)
-import LambdaAlphaRefStar.Theories.CoercionEquationalTheory.EC.SyntaxAndTyping
+import Theories.CoercionEquationalTheory.EC.SyntaxAndTyping
   as EC
-import LambdaAlphaRefStar.Theories.CoercionEquationalTheory.Code.SyntaxAndTyping
+import Theories.CoercionEquationalTheory.Code.SyntaxAndTyping
   as OC
-open import LambdaAlphaRefStar.Theories.CoercionEquationalTheory.Meta.SyntaxAndTyping
-open import LambdaAlphaRefStar.Theories.CoercionEquationalTheory.EC.Semantics
-open import LambdaAlphaRefStar.Theories.CoercionEquationalTheory.Code.Semantics
+open import Theories.CoercionEquationalTheory.Meta.SyntaxAndTyping
+open import Theories.CoercionEquationalTheory.EC.Semantics
+open import Theories.CoercionEquationalTheory.Code.Semantics
 
 
 -- | Frames for meta coercions.

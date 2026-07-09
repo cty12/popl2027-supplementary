@@ -1,8 +1,8 @@
-module LambdaAlphaRefStar.Theories.SpaceEfficiency.ObjectHypercoercions where
+module Theories.SpaceEfficiency.ObjectHypercoercions where
 
-open import LambdaAlphaRefStar.Theories.BlameLabels public
-open import LambdaAlphaRefStar.Theories.BaseTypes using (Base)
-open import LambdaAlphaRefStar.Theories.CodeTypes
+open import Theories.BlameLabels public
+open import Theories.BaseTypes using (Base)
+open import Theories.CodeTypes
 open import Relation.Binary.PropositionalEquality using (refl)
 open import Relation.Nullary using (Dec; yes; no)
 

@@ -1,14 +1,14 @@
-module LambdaAlphaRefStar.Theories.ECCtxWeakening where
+module Theories.ECCtxWeakening where
 
 open import Data.List using (List; []; _∷_)
 open import Data.List.Relation.Unary.All using (All) renaming ([] to []ᴬ; _∷_ to _∷ᴬ_)
 open import Data.Nat.Properties using (≤-trans; <-≤-trans)
 open import Data.Product using (_×_) renaming (_,_ to ⟨_,_⟩)
 
-open import Utils using (⟨_,_,_⟩; ⟨_,_,_,_⟩)
-open import LambdaAlphaRefStar.Theories.CCAlphaRefStarSyntaxAndTypeSystem
-import LambdaAlphaRefStar.Theories.CoercionSequences.EC.Definition as EC
-import LambdaAlphaRefStar.Theories.CoercionSequences.Meta.Definition as MC
+open import Theories.Utils using (⟨_,_,_⟩; ⟨_,_,_,_⟩)
+open import Theories.CCAlphaRefStarSyntaxAndTypeSystem
+import Theories.CoercionSequences.EC.Definition as EC
+import Theories.CoercionSequences.Meta.Definition as MC
 
 
 ------------------------------------------------------------------------

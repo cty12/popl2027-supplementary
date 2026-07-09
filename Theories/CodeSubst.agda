@@ -1,8 +1,8 @@
-module LambdaAlphaRefStar.Theories.CodeSubst where
+module Theories.CodeSubst where
 
 open import Relation.Binary.PropositionalEquality using (_≡_; refl; cong)
 
-open import LambdaAlphaRefStar.Theories.CCAlphaRefStarSyntaxAndTypeSystem
+open import Theories.CCAlphaRefStarSyntaxAndTypeSystem
 
 
 -- +-----------------------------+ --

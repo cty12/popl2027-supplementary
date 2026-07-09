@@ -1,13 +1,13 @@
-module LambdaAlphaRefStar.Theories.ElaborationPreserves where
+module Theories.ElaborationPreserves where
 
 open import Data.List.Relation.Unary.All renaming ([] to []ᴬ; _∷_ to _∷ᴬ_)
 open import Data.Product renaming (_,_ to ⟨_,_⟩)
 
-open import Utils using (∅; ⟨_,_,_,_⟩)
-open import LambdaAlphaRefStar.Theories.CCAlphaRefStarSyntaxAndTypeSystem
-open import LambdaAlphaRefStar.Theories.CoercePreserves
-open import LambdaAlphaRefStar.Theories.Elaboration
-open import LambdaAlphaRefStar.Theories.WellTypedTermImpliesWellFormedTypes
+open import Theories.Utils using (∅; ⟨_,_,_,_⟩)
+open import Theories.CCAlphaRefStarSyntaxAndTypeSystem
+open import Theories.CoercePreserves
+open import Theories.Elaboration
+open import Theories.WellTypedTermImpliesWellFormedTypes
 
 
 mutual

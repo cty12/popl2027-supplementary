@@ -1,12 +1,12 @@
-module LambdaAlphaRefStar.Theories.SpaceEfficiency.Proofs.HeapCtxWeakening where
+module Theories.SpaceEfficiency.Proofs.HeapCtxWeakening where
 
 open import Data.List using (_∷ʳ_)
 open import Data.Nat using (suc)
 open import Relation.Binary.PropositionalEquality using (subst; refl)
   renaming (sym to ≡-sym)
 
-open import Utils using (_≼_; lookup-snoc; ⟨_,_,_⟩; ⟨_,_,_,_⟩)
-open import LambdaAlphaRefStar.Theories.SpaceEfficiency.CCAlphaRefStarSyntaxAndTypeSystem
+open import Theories.Utils using (_≼_; lookup-snoc; ⟨_,_,_⟩; ⟨_,_,_,_⟩)
+open import Theories.SpaceEfficiency.CCAlphaRefStarSyntaxAndTypeSystem
 
 
 ------------------------------------------------------------------------

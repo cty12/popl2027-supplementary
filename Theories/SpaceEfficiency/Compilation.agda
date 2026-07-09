@@ -1,9 +1,9 @@
-module LambdaAlphaRefStar.Theories.SpaceEfficiency.Compilation where
+module Theories.SpaceEfficiency.Compilation where
 
-open import LambdaAlphaRefStar.Theories.SurfaceSyntaxAndTypeSystem
-open import LambdaAlphaRefStar.Theories.ConsistentSubtyping
-open import LambdaAlphaRefStar.Theories.SpaceEfficiency.CCAlphaRefStarSyntaxAndTypeSystem
-open import LambdaAlphaRefStar.Theories.SpaceEfficiency.Elaboration
+open import Theories.SurfaceSyntaxAndTypeSystem
+open import Theories.ConsistentSubtyping
+open import Theories.SpaceEfficiency.CCAlphaRefStarSyntaxAndTypeSystem
+open import Theories.SpaceEfficiency.Elaboration
   using (coerce; coercionᵐ)
 
 

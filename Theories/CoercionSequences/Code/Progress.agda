@@ -1,11 +1,11 @@
-module LambdaAlphaRefStar.Theories.CoercionSequences.Code.Progress where
+module Theories.CoercionSequences.Code.Progress where
 
 open import Data.List using ([])
 open import Relation.Binary.PropositionalEquality using (refl)
 open import Data.Product using (_,_)
 open import Relation.Nullary using (yes; no; ¬_)
 
-open import LambdaAlphaRefStar.Theories.CoercionSequences.Code.Definition
+open import Theories.CoercionSequences.Code.Definition
 
 
 data Progressᵒ (cᵒ : OSingleCoercion) : Set where
