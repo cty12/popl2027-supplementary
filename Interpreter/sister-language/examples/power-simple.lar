@@ -1,0 +1,14 @@
+(let* ([(power : (∀̇ (_ <: β <: _) (→ Int (→ (‶ Int ″ β) (‶ Int ″ β)))))
+        (Λ (_ <: γ <: _)
+          (fixλ p (n : Int) : (→ (‶ Int ″ γ) (‶ Int ″ γ))
+            (λ (x : (‶ Int ″ γ))
+               (if ('zero? n)
+                   (‶ 1 ″ ε)
+                   (‶ (('* ((~ x) :: Int))
+                           ((~ ((p ('sub1 n)) x)) :: Int)) ″ γ)))))]
+       [(power5 : (‶ (→ Int Int) ″ ε))
+        (‶ (λ β (x : Int) ((~ (((power [ β ]) 5) (‶ x ″ β))) :: Int)) ″ ε)]
+       [(power4 : (‶ (→ Int Int) ″ ε))
+        (‶ (λ δ (x : Int) ((~ (((power [ δ ]) 4) (‶ x ″ δ))) :: Int)) ″ ε)])
+  (‶ (('+ (((~ power5) :: (→ Int Int)) 2))
+          (((~ power4) :: (→ Int Int)) 2)) ″ ε))

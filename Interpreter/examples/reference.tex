@@ -1,0 +1,16 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{fullpage}
+\allowdisplaybreaks
+\DeclareMathSymbol{\mlq}{\mathord}{operators}{``}\DeclareMathSymbol{\mrq}{\mathord}{operators}{`'}\newcommand{\quot}[1]{\mlq\mlq #1 \mrq\mrq}\begin{document}
+\tiny\begin{align*}
+&TODO\\ 
+&\Downarrow\\ 
+&\left(\left(\begin{array}{l} \mathtt{fix}\; \mathit{_}_{1508}(\mathit{r}_{6}:(\mathtt{Ref}\, \mathtt{Int})): \mathtt{Int}\\\left(\left(\begin{array}{l} \mathtt{fix}\; \mathit{_}_{1506}(\mathit{_}_{1507}:\mathtt{Unit}): \mathtt{Int}\\!\mathit{r}_{6}\end{array}\right)\cdot \mathit{r}_{6} := 42\right)\end{array}\right)\cdot \mathsf{ref} 10\right)\\ 
+\longmapsto &\;\left(\left(\begin{array}{l} \mathtt{fix}\; \mathit{_}_{1508}(\mathit{r}_{6}:(\mathtt{Ref}\, \mathtt{Int})): \mathtt{Int}\\\left(\left(\begin{array}{l} \mathtt{fix}\; \mathit{_}_{1506}(\mathit{_}_{1507}:\mathtt{Unit}): \mathtt{Int}\\!\mathit{r}_{6}\end{array}\right)\cdot \mathit{r}_{6} := 42\right)\end{array}\right)\cdot \mathtt{@}\{0\}\right)\\ 
+\longmapsto &\;\left(\left(\begin{array}{l} \mathtt{fix}\; \mathit{_}_{1511}(\mathit{_}_{1512}:\mathtt{Unit}): \mathtt{Int}\\!\mathtt{@}\{0\}\end{array}\right)\cdot \mathtt{@}\{0\} := 42\right)\\ 
+\longmapsto &\;\left(\left(\begin{array}{l} \mathtt{fix}\; \mathit{_}_{1511}(\mathit{_}_{1512}:\mathtt{Unit}): \mathtt{Int}\\!\mathtt{@}\{0\}\end{array}\right)\cdot \mathtt{unit}\right)\\ 
+\longmapsto &\;!\mathtt{@}\{0\}\\ 
+\longmapsto &\;42\\ 
+\end{align*}
+\end{document}

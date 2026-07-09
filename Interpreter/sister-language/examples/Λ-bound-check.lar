@@ -1,0 +1,8 @@
+;; In the dynamic version, skipping the subtype check during EC application would
+;; lead to the error being caught in the subtype check happening during (~ v)
+(‶ (λ β (y : Int)
+     ((~ (let* ([(F : (∀̇ (_ <: α <: β) (→ (‶ Int ″ α) (‶ Int ″ β))))
+                 (Λ (_ <: α <: β) (λ (v : (‶ Int ″ α)) (‶ ((~ v) :: Int) ″ β)))])
+           (‶ ((λ δ (z : Int)
+                 ((~ ((F [ δ ]) (‶ z ″ δ))) :: Int)) 0) ″ ε)))
+      :: Int)) ″ ε)
