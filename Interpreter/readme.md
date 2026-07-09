@@ -14,7 +14,7 @@ The `test-examples.rkt` file tests the examples in both `examples/` and
 racket test-examples.rkt
 ```
 
-from the `stepper/` directory. It was tested on Racket v9.0 [cs].
+from the `Interpreter/` directory. It was tested on Racket v9.2 [cs].
 
 
 

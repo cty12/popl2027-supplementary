@@ -4,8 +4,8 @@
 (require "../parse.rkt")
 (require "../typecheck.rkt")
 (require "../evaluate.rkt")
-(require "../../tools.rkt")
-(require "../../logging.rkt")
+(require "../tools.rkt")
+(require "../logging.rkt")
 
 (debug #f)
 (programs-directory "../examples")
