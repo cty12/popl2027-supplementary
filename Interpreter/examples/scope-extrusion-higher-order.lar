@@ -1,0 +1,9 @@
+(let* ([r (ref (λ (x : Unit) (‶ () ″ ε)))])
+  (begin
+    (‶ (λ α (y : Unit)
+         ((~ (let* ([(f : (→ Unit (‶ Unit ″ ⋆)))
+                     (λ (x : Unit) (‶ y ″ α))])
+               (begin
+                 (r := f)
+                 (‶ () ″ ε)))) :: Unit)) ″ ε)
+    ((! r) ())))

@@ -1,0 +1,6 @@
+(let* ([(f : (→ (Ref (‶ (→ Int Int) ″ ε)) (Ref (Ref (‶ (→ Int Int) ″ ε)))))
+        (λ (x : (Ref (‶ (→ Int Int) ″ ε)))
+          (begin
+            (x := (ref (‶ (λ β (y : Int) y) ″ ε))) ;; Error is here because of type rule for Set
+            x))])
+  (‶ (((~ (! (! (f (ref (‶ (λ α (y : Int) 1) ″ ε)))))) :: (→ Int Int)) 42) ″ ε))

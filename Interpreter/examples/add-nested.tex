@@ -1,0 +1,15 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{fullpage}
+\allowdisplaybreaks
+\DeclareMathSymbol{\mlq}{\mathord}{operators}{``}\DeclareMathSymbol{\mrq}{\mathord}{operators}{`'}\newcommand{\quot}[1]{\mlq\mlq #1 \mrq\mrq}\begin{document}
+\tiny\begin{align*}
+&\left(\left(+\cdot 10\right)\cdot \left(\left(+\cdot 10\right)\cdot 22\right)\right)\\ 
+&\Downarrow\\ 
+&\left(\left(\mathtt{+}\cdot 10\right)\cdot \left(\left(\mathtt{+}\cdot 10\right)\cdot 22\right)\right)\\ 
+\longmapsto &\;\left(\mathtt{+}\cdot \left(\left(\mathtt{+}\cdot 10\right)\cdot 22\right)\right)\\ 
+\longmapsto &\;\left(\mathtt{+}\cdot \left(\mathtt{+}\cdot 22\right)\right)\\ 
+\longmapsto &\;\left(\mathtt{+}\cdot 32\right)\\ 
+\longmapsto &\;42\\ 
+\end{align*}
+\end{document}

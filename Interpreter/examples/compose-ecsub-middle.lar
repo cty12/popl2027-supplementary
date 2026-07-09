@@ -1,0 +1,11 @@
+;; This test case domonstrates why adding subtype contraints while composing
+;; CECSub middle coercions is necessary. This test case fails if we don't add a
+;; subtype contraint in the CECSub case of compose-meta-middle.
+
+(‶ (let* ([(x α) 0])
+     ((~ (let* ([(F : (∀̇ (_ <: δ <: α) (‶ Int ″ δ)))
+                 (Λ (_ <: δ <: α) (‶ 42 ″ δ))]
+                [(G : ⋆) F]
+                [(H : (∀̇ (_ <: δ <: α) (‶ Int ″ α))) G])
+           (H [ α ])))
+      :: Int)) ″ ε)

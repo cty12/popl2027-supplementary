@@ -1,0 +1,5 @@
+(let* ([(x : (Ref Int)) (ref 0)]
+       [(y : (Ref Int)) (ref 0)])
+  (begin (((λ (x : (Ref Int)) x) x) := 10)
+         (y := 20)
+         (('+ (! x)) (! y))))

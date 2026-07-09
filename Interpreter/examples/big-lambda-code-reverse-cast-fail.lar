@@ -1,0 +1,4 @@
+(let* ([(f : (∀̇ (_ <: α <: _) (→ (‶ Int ″ α) (‶ Int ″ α)))) (Λ (_ <: α <: _) (λ (x : (‶ Int ″ α)) x))]
+       [(g : ⋆) f]
+       [(h : (∀̇ (_ <: α <: _) (→ (‶ ⋆ ″ α) (‶ Bool ″ α)))) g]) ;; This should fail because of the Bool annotation
+    ((h [ε]) (‶ 42 ″ ε)))

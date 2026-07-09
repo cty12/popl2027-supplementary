@@ -1,0 +1,12 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{fullpage}
+\allowdisplaybreaks
+\DeclareMathSymbol{\mlq}{\mathord}{operators}{``}\DeclareMathSymbol{\mrq}{\mathord}{operators}{`'}\newcommand{\quot}[1]{\mlq\mlq #1 \mrq\mrq}\begin{document}
+\tiny\begin{align*}
+&\left(\left(\begin{array}{l} \mathtt{fix}\; \mathit{f}(\mathit{x}:\quot{\mathtt{Int}}^{\varepsilon}): \quot{\mathtt{Int}}^{\varepsilon}\\\mathit{x}\end{array}\right)\cdot \quot{42}^{\varepsilon}\right)\\ 
+&\Downarrow\\ 
+&\left(\left(\begin{array}{l} \mathtt{fix}\; \mathit{f}_{1}(\mathit{x}_{1}:\quot{\mathtt{Int}}^{\varepsilon}): \quot{\mathtt{Int}}^{\varepsilon}\\\mathit{x}_{1}\end{array}\right)\cdot \quot{42}^{\varepsilon}\right)\\ 
+\longmapsto &\;\quot{42}^{\varepsilon}\\ 
+\end{align*}
+\end{document}

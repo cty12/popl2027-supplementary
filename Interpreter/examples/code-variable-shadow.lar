@@ -1,0 +1,12 @@
+(‶ (let* ([(x : Unit) ()]
+          [(x : Bool) #t]
+          [(x : α Int) 20])
+     ((~ (let* ([id (Λ (_ <: β <: _) (λ (x : (‶ Int ″ β)) x))]
+                [(x : Unit) ()]
+                [(x : Bool) #t]
+                [(x : (‶ Int ″ ε)) (‶ 2 ″ ε)])
+           ;; Need to trigger calling ec->Γᵒ during preservation checks below.
+           ;; ec->Γᵒ won't work if shadowing isn't correctly handled.
+           (‶ (('+ (('+ ((~ ((id [ α ]) (‶ x ″ α))) :: Int))
+                        ((~ (‶ x ″ α)) :: Int)))
+                   ((~ x) :: Int)) ″ α))) :: Int)) ″ ε)

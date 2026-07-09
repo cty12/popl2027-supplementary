@@ -1,0 +1,7 @@
+(let* ([(r : (Ref (‶ Int ″ ε))) (ref (‶ 0 ″ ε))])
+  (‶ (λ β (y : Int) ;; need this quote to introduce a new env classifier (β) to
+                    ;; instantiate later
+       ((~ (begin
+            (r := ((Λ (_ <: α <: _) (‶ 1 ″ α)) [ β ]))
+            (‶ ((~ (! r)) :: Int) ″ ε)))
+        :: Int)) ″ ε))

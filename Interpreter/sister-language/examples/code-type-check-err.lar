@@ -1,0 +1,7 @@
+(let* ([(r : (Ref (‶ Bool ″ ε))) (ref (‶ #t ″ ε))])
+  (‶ (λ β (y : Int) ;; need this quote to introduce a new env classifier (β) to
+                    ;; instantiate later
+       ((~ (begin
+             (r := ((Λ (_ <: α <: _) (‶ #f ″ α)) [ β ]))
+             (‶ (('+ 0) (~ (! r))) ″ β))) ;; This fails at dyn runtime because !r should be an Int, not Bool
+        :: Int)) ″ ε))

@@ -1,0 +1,19 @@
+(let* ([(n : Int) 0]
+       [(if-bound : (∀̇ (_ <: α <: _)
+                       (∀̇ (_ <: β <: _)
+                          (→ Int (→ (‶ Int ″ α) (→ (‶ Int ″ β) (‶ Int ″ β)))))))
+        (Λ (_ <: α <: _)
+           (Λ (_ <: β <: _)
+              (λ (m : Int)
+                (λ (u : (‶ Int ″ α))
+                  (λ (v : (‶ Int ″ β))
+                    (if ('zero? m) u v))))))])
+  (‶ (((λ α (x : Int)
+         (λ β (y : Int)
+            ;; With the EC ⊤ present in the system, instead of raising an error
+            ;; caused by the branches of "if" in if-bound not having a least
+            ;; upper bound, the least upper bound is computed to be ⊤. This
+            ;; leads to the error which should have triggered earlier in "if" in
+            ;; the definition of if-bound to instead be later triggered in the
+            ;; spliced term below.
+           ((~ (((((if-bound [α]) [β]) 3) (‶ x ″ α)) (‶ y ″ β))) :: Int))) 1) 2) ″ ε))

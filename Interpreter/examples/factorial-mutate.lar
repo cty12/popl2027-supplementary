@@ -1,0 +1,8 @@
+(let* ([res (ref 1)]
+       [fact! (fixλ f (n : Int) : Int
+                (if ('zero? n)
+                    (! res)
+                    (begin
+                      (res := (('* n) (! res)))
+                      (f (('- n) 1)))))])
+  (('+ 36) (fact! 3)))
