@@ -1,0 +1,215 @@
+* Syntax:
+
+single code coercions    cᵒ, dᵒ ::= Gᵒ ! | Gᵒ ? ℓ | c̅ᵒ ⇒ d̅ᵒ | ⊥ ℓ
+code coercion sequences  c̅ᵒ, d̅ᵒ ::= [] | cᵒ ; c̅ᵒ
+
+Syntactically, a code coercion sequence is a list of single coercions. The empty
+list is the sole identity coercion and the structural identity of sequence
+composition.
+
+We write [ cᵒ ] as shorthand for the singleton sequence (cᵒ ; []).
+IdSeq c̅ᵒ ≜ (c̅ᵒ = []). BlameSeq c̅ᵒ ≜ ∃ ℓ. c̅ᵒ = [ ⊥ ℓ ].
+
+* Typing:
+
++---------------------+
+|  ⊢ᵒ cᵒ : C₁ ⇒ C₂   |
++---------------------+
+
+     Gᵒ ground
+------------------------ (⊢!)
+  ⊢ᵒ Gᵒ ! : Gᵒ ⇒ ⋆
+
+      Gᵒ ground
+------------------------ (⊢?)
+  ⊢ᵒ Gᵒ ? ℓ : ⋆ ⇒ Gᵒ
+
+      ⊢ᵒ̅ c̅ᵒ : C₃ ⇒ C₁
+      ⊢ᵒ̅ d̅ᵒ : C₂ ⇒ C₄
+------------------------------------------ (⊢fun)
+ ⊢ᵒ c̅ᵒ ⇒ d̅ᵒ : (C₁ ⇒ C₂) ⇒ (C₃ ⇒ C₄)
+
+--------------------------- (⊢⊥)
+    ⊢ᵒ ⊥ ℓ : C₁ ⇒ C₂
+
+
++------------------------+
+|    ⊢ᵒ̅ c̅ᵒ : C₁ ⇒ C₂    |
++------------------------+
+
+--------------------- (⊢empty)
+  ⊢ᵒ̅ [] : C ⇒ C
+
+  ⊢ᵒ cᵒ  : C₁ ⇒ C₂
+  ⊢ᵒ̅ c̅ᵒ : C₂ ⇒ C₃
+------------------------ (⊢cons)
+ ⊢ᵒ̅ cᵒ ; c̅ᵒ : C₁ ⇒ C₃
+
+
+* Reduction semantics:
+
+(The congruence rules are designed to choose the leftmost redex.)
+
++------------------+
+|  ⊢ᵒ cᵒ —→ d̅ᵒ   |
++------------------+
+
+--------------------------------- (id-fun)
+       ⊢ᵒ ([] ⇒ []) —→ []
+
+         ⊢ᵒ̅ c̅ᵒ₁ —→ d̅ᵒ₁
+------------------------------------ (ξ-fun-dom)
+  ⊢ᵒ c̅ᵒ₁ ⇒ c̅ᵒ₂ —→ [ d̅ᵒ₁ ⇒ c̅ᵒ₂ ]
+
+   NF c̅ᵒ₁    ¬ (BlameSeq c̅ᵒ₁)    ⊢ᵒ̅ c̅ᵒ₂ —→ d̅ᵒ₂
+---------------------------------------------------- (ξ-fun-cod)
+       ⊢ᵒ c̅ᵒ₁ ⇒ c̅ᵒ₂ —→ [ c̅ᵒ₁ ⇒ d̅ᵒ₂ ]
+
+------------------------------ (ξ-⊥-fun-dom)
+  ⊢ᵒ [ ⊥ ℓ ] ⇒ c̅ᵒ —→ [ ⊥ ℓ ]
+
+     NF c̅ᵒ    ¬ (BlameSeq c̅ᵒ)
+--------------------------------- (ξ-⊥-fun-cod)
+  ⊢ᵒ c̅ᵒ ⇒ [ ⊥ ℓ ] —→ [ ⊥ ℓ ]
+
+(Note that blame propagation is eager wrt function coercions.
+ This is a difference from meta coercions.
+
+ Also, the coercion semantics is intended to be deterministic and left-biased,
+ so [ ⊥ ℓ₁ ] ⇒ [ ⊥ ℓ₂ ] —→ [ ⊥ ℓ₁ ] )
+
++---------------------------+
+|  ⊢ᵒ cᵒ₁ ; cᵒ₂ —→ d̅ᵒ    |
++---------------------------+
+
+          Gᵒ = Hᵒ
+------------------------------ (collapse)
+  ⊢ᵒ Gᵒ ! ; Hᵒ ? ℓ —→ []
+
+           Gᵒ ≠ Hᵒ
+------------------------------ (collide)
+  ⊢ᵒ Gᵒ ! ; Hᵒ ? ℓ —→ [ ⊥ ℓ ]
+
+--------------------------------------------------------------------- (seq-fun)
+ ⊢ᵒ (c̅ᵒ₁ ⇒ c̅ᵒ₂) ; (d̅ᵒ₁ ⇒ d̅ᵒ₂) —→ [ (d̅ᵒ₁ ++ c̅ᵒ₁) ⇒ (c̅ᵒ₂ ++ d̅ᵒ₂) ]
+
+------------------------ (⊥-left)
+  ⊢ᵒ ⊥ ℓ ; cᵒ —→ [ ⊥ ℓ ]
+
+--------------------------- (⊥-right-!)
+  ⊢ᵒ Gᵒ ! ; ⊥ ℓ —→ [ ⊥ ℓ ]
+
+--------------------------------- (⊥-right-fun)
+  ⊢ᵒ (c̅ᵒ₁ ⇒ c̅ᵒ₂) ; ⊥ ℓ —→ [ ⊥ ℓ ]
+
++---------------------+
+|    ⊢ᵒ̅ c̅ᵒ —→ d̅ᵒ    |
++---------------------+
+
+The coercion sequence reduction is left-biased. We first reduce the head of the
+list. When it is in single normal form, try the first adjacent pair. If that
+pair is irreducible, continue with the rest.
+
+       ⊢ᵒ cᵒ —→ d̅ᵒ
+------------------------------ (reduce-head)
+  ⊢ᵒ̅ cᵒ ; c̅ᵒ —→ d̅ᵒ ++ c̅ᵒ
+
+  SingleNF cᵒ₁    ⊢ᵒ cᵒ₁ ; cᵒ₂ —→ d̅ᵒ
+------------------------------------------------ (reduce-neighbors)
+        ⊢ᵒ̅ cᵒ₁ ; cᵒ₂ ; c̅ᵒ —→ d̅ᵒ ++ c̅ᵒ
+
+  SingleNF cᵒ₁    IrredPair cᵒ₁ cᵒ₂    ⊢ᵒ̅ cᵒ₂ ; c̅ᵒ —→ d̅ᵒ
+--------------------------------------------------------------- (reduce-tail)
+              ⊢ᵒ̅ cᵒ₁ ; cᵒ₂ ; c̅ᵒ —→ cᵒ₁ ; d̅ᵒ
+
+
++---------------+
+|    c̅ᵒ ++ d̅ᵒ   |
++---------------+
+
+(Coercion sequence append is standard list append.)
+
+       [] ++ d̅ᵒ = d̅ᵒ
+(cᵒ ; c̅ᵒ) ++ d̅ᵒ = cᵒ ; (c̅ᵒ ++ d̅ᵒ)
+
+* Normal forms:
+
++----------------+
+|  SingleNF cᵒ   |
++----------------+
+
+------------------ (nf-!)
+ SingleNF (Gᵒ !)
+
+--------------------- (nf-?)
+ SingleNF (Gᵒ ? ℓ)
+
+------------------ (nf-⊥)
+ SingleNF (⊥ ℓ)
+
+                   NF c̅ᵒ₁    NF c̅ᵒ₂
+  ¬ (IdSeq c̅ᵒ₁ ∧ IdSeq c̅ᵒ₂)  ¬ (BlameSeq c̅ᵒ₁)  ¬ (BlameSeq c̅ᵒ₂)
+------------------------------------------------------------------ (nf-fun)
+                SingleNF (c̅ᵒ₁ ⇒ c̅ᵒ₂)
+
+(The ¬ (IdSeq c̅ᵒ₁ ∧ IdSeq c̅ᵒ₂) side condition excludes id-fun, while the
+ ¬ (BlameSeq _) side conditions exclude eager function-blame reduction.)
+
++------------------------+
+|  IrredPair cᵒ₁ cᵒ₂     |
++------------------------+
+
+------------------------------ (irred-?!)
+  IrredPair (Gᵒ ? ℓ) (Gᵒ !)
+
+------------------------------------------ (irred-?fun)
+  IrredPair ((⋆ ⇒ ⋆) ? ℓ) (c̅ᵒ₁ ⇒ c̅ᵒ₂)
+
+------------------------------------------ (irred-fun!)
+  IrredPair (c̅ᵒ₁ ⇒ c̅ᵒ₂) ((⋆ ⇒ ⋆) !)
+
+--------------------------------- (irred-?⊥)
+  IrredPair (Gᵒ ? ℓ₁) (⊥ ℓ₂)
+
+(The ?⊥ right-blame pair is irreducible because it mirrors the old blame
+ propagation frame, which has the specific shape (Gᵒ ! ; □). Thus, Gᵒ ! ; ⊥ ℓ
+ and (c̅ᵒ₁ ⇒ c̅ᵒ₂) ; ⊥ ℓ propagate blame, but Gᵒ ? ℓ₁ ; ⊥ ℓ₂ does not.)
+
+
++------------+
+|  NF c̅ᵒ     |
++------------+
+
+------------ (nf-empty)
+    NF []
+
+      SingleNF cᵒ
+--------------------- (nf-singleton)
+       NF [ cᵒ ]
+
+   SingleNF cᵒ₁    IrredPair cᵒ₁ cᵒ₂    NF (cᵒ₂ ; c̅ᵒ)
+------------------------------------------------------------ (nf-step)
+                  NF (cᵒ₁ ; cᵒ₂ ; c̅ᵒ)
+
+
+* Properties:
+
+(Preservation)
+If ⊢ᵒ̅ c̅ᵒ : C₁ ⇒ C₂ and ⊢ᵒ̅ c̅ᵒ —→ d̅ᵒ, then ⊢ᵒ̅ d̅ᵒ : C₁ ⇒ C₂.
+
+(Progress)
+If ⊢ᵒ̅ c̅ᵒ : C₁ ⇒ C₂, then either (1) ⊢ᵒ̅ c̅ᵒ —→ d̅ᵒ for some d̅ᵒ or
+(2) NF c̅ᵒ.
+
+(Determinism)
+If ⊢ᵒ̅ c̅ᵒ —→ d̅ᵒ₁ and ⊢ᵒ̅ c̅ᵒ —→ d̅ᵒ₂, then d̅ᵒ₁ = d̅ᵒ₂.
+
+(Strong normalization)
+For every well-typed coercion sequence, reduction reaches a normal form:
+
+  If ⊢ᵒ̅ c̅ᵒ : C₁ ⇒ C₂,
+  then there exists d̅ᵒ such that ⊢ᵒ̅ c̅ᵒ —↠ d̅ᵒ and NF d̅ᵒ.
+
+The intended proof uses a size measure on coercion sequences, analogous to
+the EC coercion sequence proof but recursive through function coercions.
+Each one-step reduction should strictly decrease the measure.

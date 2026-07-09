@@ -1,0 +1,367 @@
+* Syntax:
+
+single meta coercions    cᵐ, dᵐ ::= G ! | G ? ℓ | ⊥ ℓ
+                                 | c̅ᵐ ⇒ d̅ᵐ
+                                 | ‶ c̅ᵒ ″ c̅ᵉ
+                                 | Ref c̅ᵐ , d̅ᵐ
+                                 | ∀ α. c̅ᵐ
+                                 | e₁ <: e₂ => c̅ᵐ
+
+meta coercion sequences  c̅ᵐ, d̅ᵐ ::= [] | cᵐ ; c̅ᵐ
+
+Syntactically, a meta coercion sequence is a list of single coercions. The
+empty list is the sole identity coercion and the structural identity of
+sequence composition.
+
+We write [ cᵐ ] as shorthand for the singleton sequence (cᵐ ; []).
+Blame cᵐ ≜ ∃ ℓ. cᵐ = ⊥ ℓ.
+Proj  cᵐ ≜ ∃ G ℓ. cᵐ = G ? ℓ, where G is ground.
+
+The code coercion constructor embeds sequence representations for both
+components: ‶ c̅ᵒ ″ c̅ᵉ, where c̅ᵒ is a code coercion sequence and c̅ᵉ is an EC
+coercion sequence.
+
+For the embedded sequence components, we use the following shorthands:
+
+  ECNF c̅ᵉ          means c̅ᵉ is an EC coercion sequence normal form.
+  ECIdSeq c̅ᵉ       means c̅ᵉ = [].
+  ECBlameSeq c̅ᵉ    means ∃ ℓ. c̅ᵉ = [ ⊥ ℓ ].
+  CodeNF c̅ᵒ        means c̅ᵒ is a code coercion sequence normal form.
+  CodeIdSeq c̅ᵒ     means c̅ᵒ = [].
+  CodeBlameSeq c̅ᵒ  means ∃ ℓ. c̅ᵒ = [ ⊥ ℓ ].
+
+
+* Typing:
+
++-------------------------+
+|  Δ ; Θ ⊢ᵐ cᵐ : A ⇒ B  |
++-------------------------+
+
+   Δ ⊢ᵐᵗ G    G ground
+------------------------------ (⊢!)
+  Δ ; Θ ⊢ᵐ G ! : G ⇒ ⋆
+
+   Δ ⊢ᵐᵗ G    G ground
+------------------------------ (⊢?)
+  Δ ; Θ ⊢ᵐ G ? ℓ : ⋆ ⇒ G
+
+         Δ ; Θ ⊢ᵐ̅ c̅ᵐ : C ⇒ A
+         Δ ; Θ ⊢ᵐ̅ d̅ᵐ : B ⇒ D
+--------------------------------------------- (⊢fun)
+ Δ ; Θ ⊢ᵐ c̅ᵐ ⇒ d̅ᵐ : (A ⇒ B) ⇒ (C ⇒ D)
+
+                 ⊢ᵒ̅ c̅ᵒ : C₁ ⇒ C₂
+          Δ ; Θ ⊢ᵉ̅ c̅ᵉ : ê₁ ⇒ ê₂
+------------------------------------------------ (⊢code)
+ Δ ; Θ ⊢ᵐ ‶ c̅ᵒ ″ c̅ᵉ : ‶ C₁ ″ ê₁ ⇒ ‶ C₂ ″ ê₂
+
+      Δ ; Θ ⊢ᵐ̅ c̅ᵐ : B ⇒ A
+      Δ ; Θ ⊢ᵐ̅ d̅ᵐ : A ⇒ B
+--------------------------------------- (⊢ref)
+ Δ ; Θ ⊢ᵐ Ref c̅ᵐ , d̅ᵐ : Ref A ⇒ Ref B
+
+      Δ , α ; Θ ⊢ᵐ̅ c̅ᵐ : A ⇒ B      α ∉ Δ
+------------------------------------------------ (⊢forall)
+      Δ ; Θ ⊢ᵐ ∀ α. c̅ᵐ : ∀ α. A ⇒ ∀ α. B
+
+                     Δ ⊢ᵉ e₁    Δ ⊢ᵉ e₂
+              Δ ; Θ , e₁ <: e₂ ⊢ᵐ̅ c̅ᵐ : A ⇒ B
+------------------------------------------------------------------ (⊢sub)
+   Δ ; Θ ⊢ᵐ e₁ <: e₂ => c̅ᵐ : (e₁ <: e₂ => A) ⇒ (e₁ <: e₂ => B)
+
+    Δ ⊢ᵐᵗ A    Δ ⊢ᵐᵗ B
+--------------------------- (⊢⊥)
+  Δ ; Θ ⊢ᵐ ⊥ ℓ : A ⇒ B
+
+
++------------------------------+
+|    Δ ; Θ ⊢ᵐ̅ c̅ᵐ : A ⇒ B     |
++------------------------------+
+
+  Δ ⊢ᵐᵗ A
+------------------------- (⊢empty)
+  Δ ; Θ ⊢ᵐ̅ [] : A ⇒ A
+
+  Δ ; Θ ⊢ᵐ cᵐ  : A ⇒ B
+  Δ ; Θ ⊢ᵐ̅ c̅ᵐ : B ⇒ C
+----------------------------- (⊢cons)
+ Δ ; Θ ⊢ᵐ̅ cᵐ ; c̅ᵐ : A ⇒ C
+
+
+* Reduction semantics:
+
+The reduction is left-biased. For a sequence, first reduce the head single
+coercion. If the head is in single normal form, reduce the first adjacent pair.
+If that pair is irreducible, continue with the tail.
+
+Unlike code coercions, meta coercions do not eagerly propagate blame through
+function/ref/forall/sub wrappers. This follows the old meta semantics, where
+the error-propagating frames only had composition shape (□ ; _) and (_ ; □).
+The only wrapper that propagates child blame to a meta blame is code coercion,
+because the old semantics had explicit ξ-code-o-err and ξ-code-ec-err rules.
+
+
++--------------------+
+|  Θ ⊢ᵐ cᵐ —→ d̅ᵐ |
++--------------------+
+
+---------------------------------- (id-fun)
+  Θ ⊢ᵐ [] ⇒ [] —→ []
+
+---------------------------------- (id-code)
+  Θ ⊢ᵐ ‶ [] ″ [] —→ []
+
+---------------------------------- (id-ref)
+  Θ ⊢ᵐ Ref [] , [] —→ []
+
+---------------------------- (id-forall)
+  Θ ⊢ᵐ ∀ α. [] —→ []
+
+---------------------------------------- (id-sub)
+  Θ ⊢ᵐ e₁ <: e₂ => [] —→ []
+
+        Θ ⊢ᵐ̅ c̅ᵐ₁ —→ d̅ᵐ₁
+------------------------------------------ (ξ-fun-dom)
+  Θ ⊢ᵐ c̅ᵐ₁ ⇒ c̅ᵐ₂ —→ [ d̅ᵐ₁ ⇒ c̅ᵐ₂ ]
+
+    NF c̅ᵐ₁    Θ ⊢ᵐ̅ c̅ᵐ₂ —→ d̅ᵐ₂
+------------------------------------------ (ξ-fun-cod)
+  Θ ⊢ᵐ c̅ᵐ₁ ⇒ c̅ᵐ₂ —→ [ c̅ᵐ₁ ⇒ d̅ᵐ₂ ]
+
+           Θ ⊢ᵐ̅ c̅ᵐ₁ —→ d̅ᵐ₁
+------------------------------------------------ (ξ-ref-in)
+  Θ ⊢ᵐ Ref c̅ᵐ₁ , c̅ᵐ₂ —→ [ Ref d̅ᵐ₁ , c̅ᵐ₂ ]
+
+       NF c̅ᵐ₁    Θ ⊢ᵐ̅ c̅ᵐ₂ —→ d̅ᵐ₂
+------------------------------------------------ (ξ-ref-out)
+  Θ ⊢ᵐ Ref c̅ᵐ₁ , c̅ᵐ₂ —→ [ Ref c̅ᵐ₁ , d̅ᵐ₂ ]
+
+         Θ ⊢ᵐ̅ c̅ᵐ —→ d̅ᵐ
+--------------------------------------------- (ξ-forall)
+        Θ ⊢ᵐ ∀ α. c̅ᵐ —→ [ ∀ α. d̅ᵐ ]
+
+        Θ , e₁ <: e₂ ⊢ᵐ̅ c̅ᵐ —→ d̅ᵐ
+--------------------------------------------------------- (ξ-sub)
+        Θ ⊢ᵐ e₁ <: e₂ => c̅ᵐ —→ [ e₁ <: e₂ => d̅ᵐ ]
+
+                ⊢ᵒ̅ c̅ᵒ —→ d̅ᵒ
+--------------------------------------- (ξ-code)
+  Θ ⊢ᵐ ‶ c̅ᵒ ″ c̅ᵉ —→ [ ‶ d̅ᵒ ″ c̅ᵉ ]
+
+  CodeNF c̅ᵒ    ¬ (CodeBlameSeq c̅ᵒ)    Θ ⊢ᵉ̅ c̅ᵉ —→ d̅ᵉ
+--------------------------------------------------------- (ξ-code-ec)
+        Θ ⊢ᵐ ‶ c̅ᵒ ″ c̅ᵉ —→ [ ‶ c̅ᵒ ″ d̅ᵉ ]
+
+--------------------------------------- (ξ-code-⊥)
+  Θ ⊢ᵐ ‶ [ ⊥ ℓ ] ″ c̅ᵉ —→ [ ⊥ ℓ ]
+
+  CodeNF c̅ᵒ    ¬ (CodeBlameSeq c̅ᵒ)
+--------------------------------------- (ξ-code-ec-⊥)
+  Θ ⊢ᵐ ‶ c̅ᵒ ″ [ ⊥ ℓ ] —→ [ ⊥ ℓ ]
+
+
++-----------------------------+
+|   Θ ⊢ᵐ cᵐ₁ ; cᵐ₂ —→ d̅ᵐ  |
++-----------------------------+
+
+--------------------------------- (collapse)
+  Θ ⊢ᵐ G ! ; G ? ℓ —→ []
+
+               G ≠ H
+------------------------------------ (collide)
+  Θ ⊢ᵐ G ! ; H ? ℓ —→ [ ⊥ ℓ ]
+
+--------------------------------------------------------------------------- (seq-fun)
+ Θ ⊢ᵐ (c̅ᵐ₁ ⇒ c̅ᵐ₂) ; (d̅ᵐ₁ ⇒ d̅ᵐ₂) —→ [ (d̅ᵐ₁ ++ c̅ᵐ₁) ⇒ (c̅ᵐ₂ ++ d̅ᵐ₂) ]
+
+--------------------------------------------------------------------------------------- (seq-ref)
+ Θ ⊢ᵐ (Ref c̅ᵐ₁ , c̅ᵐ₂) ; (Ref d̅ᵐ₁ , d̅ᵐ₂) —→ [ Ref (d̅ᵐ₁ ++ c̅ᵐ₁) , (c̅ᵐ₂ ++ d̅ᵐ₂) ]
+
+--------------------------------------------------------------------- (seq-code)
+ Θ ⊢ᵐ (‶ c̅ᵒ ″ c̅ᵉ) ; (‶ d̅ᵒ ″ d̅ᵉ) —→ [ ‶ c̅ᵒ ++ d̅ᵒ ″ (c̅ᵉ ++ d̅ᵉ) ]
+
+------------------------------------------------------------ (seq-forall)
+  Θ ⊢ᵐ (∀ α. c̅ᵐ) ; (∀ α. d̅ᵐ) —→ [ ∀ α. (c̅ᵐ ++ d̅ᵐ) ]
+
+--------------------------------------------------------------------------------- (seq-sub)
+  Θ ⊢ᵐ (e₁ <: e₂ => c̅ᵐ) ; (e₁ <: e₂ => d̅ᵐ) —→ [ e₁ <: e₂ => (c̅ᵐ ++ d̅ᵐ) ]
+
+--------------------------------- (⊥-left)
+  Θ ⊢ᵐ ⊥ ℓ ; cᵐ —→ [ ⊥ ℓ ]
+
+  ¬ (Blame cᵐ)  ¬ (Proj cᵐ)
+--------------------------------- (⊥-right)
+  Θ ⊢ᵐ cᵐ ; ⊥ ℓ —→ [ ⊥ ℓ ]
+
+
++--------------------+
+|  Θ ⊢ᵐ̅ c̅ᵐ —→ d̅ᵐ  |
++--------------------+
+
+       Θ ⊢ᵐ cᵐ —→ d̅ᵐ
+------------------------------------ (reduce-head)
+  Θ ⊢ᵐ̅ cᵐ ; c̅ᵐ —→ d̅ᵐ ++ c̅ᵐ
+
+  SingleNF cᵐ₁    Θ ⊢ᵐ cᵐ₁ ; cᵐ₂ —→ d̅ᵐ
+------------------------------------------------ (reduce-neighbors)
+       Θ ⊢ᵐ̅ cᵐ₁ ; cᵐ₂ ; c̅ᵐ —→ d̅ᵐ ++ c̅ᵐ
+
+  SingleNF cᵐ₁    IrredPair cᵐ₁ cᵐ₂    Θ ⊢ᵐ̅ cᵐ₂ ; c̅ᵐ —→ d̅ᵐ
+------------------------------------------------------------------------ (reduce-tail)
+              Θ ⊢ᵐ̅ cᵐ₁ ; cᵐ₂ ; c̅ᵐ —→ cᵐ₁ ; d̅ᵐ
+
+
++---------------+
+|    c̅ᵐ ++ d̅ᵐ   |
++---------------+
+
+(Coercion sequence append is standard list append.)
+
+       [] ++ d̅ᵐ = d̅ᵐ
+(cᵐ ; c̅ᵐ) ++ d̅ᵐ = cᵐ ; (c̅ᵐ ++ d̅ᵐ)
+
+
+* Normal forms:
+
++----------------+
+|  SingleNF cᵐ   |
++----------------+
+
+------------------ (nf-!)
+ SingleNF (G !)
+
+--------------------- (nf-?)
+ SingleNF (G ? ℓ)
+
+------------------ (nf-⊥)
+ SingleNF (⊥ ℓ)
+
+         NF c̅ᵐ₁    NF c̅ᵐ₂    ¬ (IdSeq c̅ᵐ₁ ∧ IdSeq c̅ᵐ₂)
+---------------------------------------------------------------- (nf-fun)
+       SingleNF (c̅ᵐ₁ ⇒ c̅ᵐ₂)
+
+       CodeNF c̅ᵒ    ECNF c̅ᵉ    ¬ (CodeIdSeq c̅ᵒ ∧ ECIdSeq c̅ᵉ)
+              ¬ (CodeBlameSeq c̅ᵒ)   ¬ (ECBlameSeq c̅ᵉ)
+---------------------------------------------------------------------- (nf-code)
+                        SingleNF (‶ c̅ᵒ ″ c̅ᵉ)
+
+         NF c̅ᵐ₁    NF c̅ᵐ₂    ¬ (IdSeq c̅ᵐ₁ ∧ IdSeq c̅ᵐ₂)
+---------------------------------------------------------------- (nf-ref)
+      SingleNF (Ref c̅ᵐ₁ , c̅ᵐ₂)
+
+          NF c̅ᵐ    ¬ (IdSeq c̅ᵐ)
+---------------------------------- (nf-forall)
+   SingleNF (∀ α. c̅ᵐ)
+
+                NF c̅ᵐ    ¬ (IdSeq c̅ᵐ)
+-------------------------------------------------- (nf-sub)
+      SingleNF (e₁ <: e₂ => c̅ᵐ)
+
+The IdSeq side conditions exclude higher-order identity wrappers. For example,
+[] ⇒ [], ‶ [] ″ [], Ref [] , [], ∀ α. [], and e₁ <: e₂ => [] all reduce to [].
+
+
++------------------------+
+|  IrredPair cᵐ₁ cᵐ₂     |
++------------------------+
+
+IrredPair is a syntactic predicate for well-typed adjacent pairs of single
+coercions that are not redexes.
+
+------------------------------ (irred-?!)
+  IrredPair (G ? ℓ) (G !)
+
+------------------------------ (irred-?⊥)
+  IrredPair (G ? ℓ) (⊥ ℓ′)
+
+------------------------------------------ (irred-?fun)
+  IrredPair ((⋆ ⇒ ⋆) ? ℓ) (c̅ᵐ₁ ⇒ c̅ᵐ₂)
+
+------------------------------------------ (irred-fun!)
+  IrredPair (c̅ᵐ₁ ⇒ c̅ᵐ₂) ((⋆ ⇒ ⋆) !)
+
+------------------------------------------ (irred-?code)
+  IrredPair ((‶ ⋆ ″ ⋆) ? ℓ) (‶ c̅ᵒ ″ c̅ᵉ)
+
+------------------------------------------ (irred-code!)
+  IrredPair (‶ c̅ᵒ ″ c̅ᵉ) ((‶ ⋆ ″ ⋆) !)
+
+------------------------------------------ (irred-?ref)
+  IrredPair ((Ref ⋆) ? ℓ) (Ref c̅ᵐ₁ , c̅ᵐ₂)
+
+------------------------------------------ (irred-ref!)
+  IrredPair (Ref c̅ᵐ₁ , c̅ᵐ₂) ((Ref ⋆) !)
+
+------------------------------------------ (irred-?forall)
+  IrredPair ((∀ α. ⋆) ? ℓ) (∀ α. c̅ᵐ)
+
+------------------------------------------ (irred-forall!)
+  IrredPair (∀ α. c̅ᵐ) ((∀ α. ⋆) !)
+
+------------------------------------------------------ (irred-?sub)
+  IrredPair ((e₁ <: e₂ => ⋆) ? ℓ) (e₁ <: e₂ => c̅ᵐ)
+
+------------------------------------------------------ (irred-sub!)
+  IrredPair (e₁ <: e₂ => c̅ᵐ) ((e₁ <: e₂ => ⋆) !)
+
+The projection/blame boundary is irreducible because projection coercions
+handle delayed blame in the term-level cast semantics. Other non-blame,
+non-projection left coercions propagate right blame by ⊥-right. If the left
+coercion is already blame, ⊥-left takes priority.
+
+
++------------+
+|  NF c̅ᵐ     |
++------------+
+
+------------ (nf-empty)
+    NF []
+
+     SingleNF cᵐ
+--------------------- (nf-singleton)
+       NF [ cᵐ ]
+
+     SingleNF cᵐ₁    IrredPair cᵐ₁ cᵐ₂    NF (cᵐ₂ ; c̅ᵐ)
+------------------------------------------------------------ (nf-step)
+                   NF (cᵐ₁ ; cᵐ₂ ; c̅ᵐ)
+
+
+* Properties:
+
+(Preservation)
+If Δ ; Θ ⊢ᵐ̅ c̅ᵐ : A ⇒ B and Θ ⊢ᵐ̅ c̅ᵐ —→ d̅ᵐ,
+then Δ ; Θ ⊢ᵐ̅ d̅ᵐ : A ⇒ B.
+
+(Progress, assuming decidability of equality on ground meta types and the
+progress theorem for embedded EC/code coercion sequences)
+If Δ ; Θ ⊢ᵐ̅ c̅ᵐ : A ⇒ B, then either (1) Θ ⊢ᵐ̅ c̅ᵐ —→ d̅ᵐ for some d̅ᵐ or
+(2) NF c̅ᵐ.
+
+(Determinism)
+If Θ ⊢ᵐ̅ c̅ᵐ —→ d̅ᵐ₁ and Θ ⊢ᵐ̅ c̅ᵐ —→ d̅ᵐ₂, then d̅ᵐ₁ = d̅ᵐ₂.
+
+(Strong normalization)
+For every well-typed coercion sequence, reduction reaches a normal form:
+
+  If Δ ; Θ ⊢ᵐ̅ c̅ᵐ : A ⇒ B,
+  then there exists d̅ᵐ such that Θ ⊢ᵐ̅ c̅ᵐ —↠ d̅ᵐ and NF d̅ᵐ.
+
+The intended measure views a meta coercion sequence as a list of coercion
+trees. The measure is the total number of meta coercion nodes plus the embedded
+EC/code sequence sizes:
+
+  singleSize (G !) = 1
+  singleSize (G ? ℓ) = 1
+  singleSize (⊥ ℓ) = 1
+  singleSize (c̅ᵐ ⇒ d̅ᵐ) = 1 + seqSize c̅ᵐ + seqSize d̅ᵐ
+  singleSize (‶ c̅ᵒ ″ c̅ᵉ) = 1 + codeSeqSize c̅ᵒ + ecSeqSize c̅ᵉ
+  singleSize (Ref c̅ᵐ , d̅ᵐ) = 1 + seqSize c̅ᵐ + seqSize d̅ᵐ
+  singleSize (∀ α. c̅ᵐ) = 1 + seqSize c̅ᵐ
+  singleSize (e₁ <: e₂ => c̅ᵐ) = 1 + seqSize c̅ᵐ
+
+  seqSize [] = 0
+  seqSize (cᵐ ; c̅ᵐ) = singleSize cᵐ + seqSize c̅ᵐ
+
+Pair reductions remove one sequencing boundary or one wrapper node, and child
+reductions decrease by the imported EC/code termination measures or by the
+recursive meta measure.

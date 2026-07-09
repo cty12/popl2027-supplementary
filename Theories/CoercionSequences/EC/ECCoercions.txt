@@ -1,0 +1,191 @@
+* Syntax:
+
+single EC coercions   cᵉ, dᵉ ::= e ! | e ? ℓ | ê₁ ↑ ê₂ | ⊥ ℓ
+EC coercion sequences c̅ᵉ, d̅ᵉ ::= [] | cᵉ ; c̅ᵉ
+
+Syntactically, an EC coercion sequence is an ordinary list of single EC
+coercions. The empty list is the structural identity of sequence composition.
+
+We write [ cᵉ ] as shorthand for the singleton sequence (cᵉ ; []).
+Blame cᵉ ≜ ∃ ℓ. cᵉ = ⊥ ℓ.
+BlameSeq c̅ᵉ ≜ ∃ ℓ. c̅ᵉ = [ ⊥ ℓ ].
+
+
+* Typing:
+
++---------------------------+
+| Δ ; Θ ⊢ cᵉ : ê₁ ⇒ ê₂ |
++---------------------------+
+
+          Δ ⊢ e
+------------------------------
+  Δ ; Θ ⊢ e ! : ec e ⇒ ⋆
+
+             Δ ⊢ e
+------------------------------
+  Δ ; Θ ⊢ e ? ℓ : ⋆ ⇒ ec e
+
+  Δ ⊢ ê₁    Δ ⊢ ê₂    Θ ⊢ ê₁ <: ê₂
+---------------------------------------
+    Δ ; Θ ⊢ ê₁ ↑ ê₂ : ê₁ ⇒ ê₂
+
+  Δ ⊢ ê₁  Δ ⊢ ê₂
+------------------------
+Δ ; Θ ⊢ ⊥ ℓ : ê₁ ⇒ ê₂
+
+
++----------------------------+
+| Δ ; Θ ⊢ c̅ᵉ : ê₁ ⇒ ê₂ |
++----------------------------+
+
+  Δ ⊢ ê
+---------------------
+Δ ; Θ ⊢ [] : ê ⇒ ê
+
+  Δ ; Θ ⊢ cᵉ : ê₁ ⇒ ê₂
+  Δ ; Θ ⊢ c̅ᵉ : ê₂ ⇒ ê₃
+------------------------------
+Δ ; Θ ⊢ cᵉ ; c̅ᵉ : ê₁ ⇒ ê₃
+
+
+* Reduction semantics:
+
++---------------------------+
+|  Θ ⊢ cᵉ —→ d̅ᵉ          |
++---------------------------+
+
+--------------------------------- (↑-id)
+       Θ ⊢ ê ↑ ê —→ []
+
+
++----------------------------+
+|  Θ ⊢ cᵉ₁ ; cᵉ₂ —→ d̅ᵉ   |
++----------------------------+
+
+                Θ ⊢ e₁ <: e₂
+--------------------------------------------- (collapse)
+  Θ ⊢ e₁ ! ; e₂ ? ℓ —→ [ ec e₁ ↑ ec e₂ ]
+
+        ¬ Θ ⊢ e₁ <: e₂
+--------------------------------- (collide)
+  Θ ⊢ e₁ ! ; e₂ ? ℓ —→ [ ⊥ ℓ ]
+
+------------------------------------------ (↑-collapse)
+  Θ ⊢ ê₁ ↑ ê₂ ; ê₂ ↑ ê₃ —→ [ ê₁ ↑ ê₃ ]
+
+--------------------------------- (⊥-left)
+  Θ ⊢ ⊥ ℓ ; cᵉ —→ [ ⊥ ℓ ]
+
+            ¬ (Blame cᵉ)
+--------------------------------- (⊥-right)
+  Θ ⊢ cᵉ ; ⊥ ℓ —→ [ ⊥ ℓ ]
+
+
++---------------------+
+|    Θ ⊢ c̅ᵉ —→ d̅ᵉ  |
++---------------------+
+
+The sequence reduction is left-biased. It reduces the first adjacent reducible
+head coercion if possible, otherwise the first adjacent reducible pair. If the
+first pair is irreducible, reduction continues into the tail.
+
+       Θ ⊢ cᵉ —→ d̅ᵉ
+------------------------------------ (reduce-head)
+       Θ ⊢ cᵉ ; c̅ᵉ —→ d̅ᵉ ++ c̅ᵉ
+
+  SingleNF cᵉ₁    Θ ⊢ cᵉ₁ ; cᵉ₂ —→ d̅ᵉ
+------------------------------------------------------- (reduce-neighbors)
+       Θ ⊢ cᵉ₁ ; cᵉ₂ ; c̅ᵉ —→ d̅ᵉ ++ c̅ᵉ
+
+  SingleNF cᵉ₁    IrredPair cᵉ₁ cᵉ₂    Θ ⊢ cᵉ₂ ; c̅ᵉ —→ d̅ᵉ
+------------------------------------------------------------ (reduce-tail)
+              Θ ⊢ cᵉ₁ ; cᵉ₂ ; c̅ᵉ —→ cᵉ₁ ; d̅ᵉ
+
+* Normal forms:
+
++----------------+
+|  SingleNF cᵉ   |
++----------------+
+
+------------------ (nf-!)
+ SingleNF (e !)
+
+--------------------- (nf-?)
+ SingleNF (e ? ℓ)
+
+        ê₁ ≠ ê₂
+----------------------- (nf-↑)
+ SingleNF (ê₁ ↑ ê₂)
+
+------------------ (nf-⊥)
+ SingleNF (⊥ ℓ)
+
+(The ê₁ ≠ ê₂ side condition excludes ↑-id, so [ ê ↑ ê ] reduces to [].)
+
++------------------------+
+|  IrredPair cᵉ₁ cᵉ₂     |
++------------------------+
+
+------------------------ (irred-?!)
+  IrredPair (e ? ℓ) (e !)
+
+        e′ ≠ e
+---------------------------------- (irred-↑!)
+  IrredPair (ec e′ ↑ ec e) (e !)
+
+----------------------------- (irred-!↑⋆)
+  IrredPair (e !) (⋆ ↑ ⋆)
+
+--------------------------------------- (irred-?↑)
+  IrredPair (e ? ℓ) (ec e ↑ ec e′)
+
+IrredPair is syntactic and lists only well-typed normal boundaries. These
+boundaries cannot trigger injection/projection collapse or collision, adjacent
+subtyping collapse, identity elimination, or blame propagation.
+
+
++------------+
+|  NF c̅ᵉ     |
++------------+
+
+--------- (nf-empty)
+ NF []
+
+      SingleNF cᵉ
+--------------------- (nf-singleton)
+       NF [ cᵉ ]
+
+     SingleNF cᵉ₁    IrredPair cᵉ₁ cᵉ₂    NF (cᵉ₂ ; c̅ᵉ)
+---------------------------------------------------- (nf-step)
+                   NF (cᵉ₁ ; cᵉ₂ ; c̅ᵉ)
+
+
+Properties:
+
+(Preservation)
+If Δ ; Θ ⊢ c̅ᵉ : ê₁ ⇒ ê₂ and Θ ⊢ c̅ᵉ —→ d̅ᵉ, then
+Δ ; Θ ⊢ d̅ᵉ : ê₁ ⇒ ê₂.
+
+(Progress, assuming decidability of Θ ⊢ e₁ <: e₂)
+If Δ ; Θ ⊢ c̅ᵉ : ê₁ ⇒ ê₂, then either
+(1) Θ ⊢ c̅ᵉ —→ d̅ᵉ for some d̅ᵉ or (2) NF c̅ᵉ.
+
+(Determinism, assuming decidability of Θ ⊢ e₁ <: e₂)
+If Θ ⊢ c̅ᵉ —→ d̅ᵉ₁ and Θ ⊢ c̅ᵉ —→ d̅ᵉ₂, then d̅ᵉ₁ = d̅ᵉ₂.
+
+(Strong normalization, assuming decidability of Θ ⊢ e₁ <: e₂)
+For every well-typed coercion sequence, reduction reaches a normal form:
+
+  If Δ ; Θ ⊢ c̅ᵉ : ê₁ ⇒ ê₂,
+  then there exists d̅ᵉ such that Θ ⊢ c̅ᵉ —↠ d̅ᵉ and NF d̅ᵉ.
+
+The intended proof uses the list length as the size measure:
+
+  size([]) = 0
+  size(cᵉ ; c̅ᵉ) = 1 + size(c̅ᵉ)
+
+The key lemma should be:
+
+  If Θ ⊢ c̅ᵉ —→ d̅ᵉ, then size(d̅ᵉ) < size(c̅ᵉ).
+
+Together with progress, this gives the normalizing reduction sequence above.
