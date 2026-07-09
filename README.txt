@@ -37,7 +37,7 @@ Section 7: Type and scope safety
 - Reification preserves types (Lemma 7.4)
     reify-preserves-types in ReifyPreserves.agda
 
-- Scope safety for code values (Lemma 7.5)
+- Reification is total for code values (Lemma 7.5)
     scope-safety-val in ScopeSafetyValue.agda
 
 - Observation for code-typed values (Lemma 7.6)
