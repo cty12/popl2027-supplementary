@@ -71,10 +71,9 @@ Section 8: Space efficiency
 - Size bounded by ideal size (Lemma 8.8)
     size-OK, size^o-OK in SpaceEfficiency/Proofs/SizeOK.agda
 
-III. The prototype Racket implementation of the LambdaAlphaRefStar and
-     LambdaAlphaRef sister language are in the `stepper` directory.
-     It is implemented as an interpreter that produces reduction steps ("stepper").
+III. The prototype Racket implementations of LambdaAlphaRefStar and the
+     LambdaAlphaRef sister language are in the `Interpreter/` directory.
 
-IV. The `stepper` directory also contains example programs in both LambdaAlphaRefStar and its
-    static sister language LambdaAlphaRef. To execute the interpreter on those examples,
-    please follow the instructions in `stepper/readme.md`.
+IV. The example programs of LambdaAlphaRefStar and its static sister
+    LambdaAlphaRef are also in `Interpreter/`. To run the interpreter on those
+    examples, please follow the instructions in `Interpreter/readme.md`.
