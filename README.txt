@@ -70,10 +70,10 @@ Section 8: Space efficiency
 - Preserve height (Lemma 8.6)
     preserve-height^m, preserve-height^o in SpaceEfficiency/Proofs/PreserveHeight.agda
 
-- Real size bounded by size (Lemma 8.7)
+- Size bounded by number of terms  (Lemma 8.7)
     real-size-tsize^m, real-size-tsize^o in SpaceEfficiency/Proofs/RealSizeTermAndHeapSize.agda
 
-- Size bounded by ideal size (Lemma 8.8)
+- Number of terms bounded by ideal size  (Lemma 8.8)
     size-OK, size^o-OK in SpaceEfficiency/Proofs/SizeOK.agda
 
 III. The prototype Racket implementations of LambdaAlphaRefStar and the

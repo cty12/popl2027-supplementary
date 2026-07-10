@@ -7,6 +7,12 @@ The `examples/` subdirectory contains files with the `.lar` extension,
 which are example programs in LambdaAlphaRefStar. The `sister-language/examples/` 
 subdirectory contains LambdaAlphaRef examples (so they are statically-typed).
 
+To download the Racket dependencies run the following command in the
+`Interpreter/` directory:
+```
+raco pkg install
+```
+
 The `test-examples.rkt` file tests the examples in both `examples/` and
 `sister-language/examples/`. To run all those examples, simply run
 
