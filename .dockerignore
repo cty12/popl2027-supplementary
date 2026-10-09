@@ -1,0 +1,7 @@
+.git
+.gitignore
+# Build outputs: these are version-specific and must not leak into the image.
+**/_build/
+**/compiled/
+**/__pycache__/
+*.zip

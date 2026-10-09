@@ -1,5 +1,7 @@
 # Prototype Implementation of LambdaAlphaRefStar 
 
+(TODO: update this once I sync this repo with the new version of the prototype)
+
 This repository contains the prototype implementation of LambdaAlphaRefStar and
 its sister language LambdaAlphaRef. It also contains examples.
 
@@ -10,7 +12,7 @@ subdirectory contains LambdaAlphaRef examples (so they are statically-typed).
 To download the Racket dependencies run the following command in the
 `Interpreter/` directory:
 ```
-raco pkg install
+raco pkg install --auto
 ```
 
 The `test-examples.rkt` file tests the examples in both `examples/` and
