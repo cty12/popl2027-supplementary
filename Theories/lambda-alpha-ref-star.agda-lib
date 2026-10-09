@@ -1,0 +1,4 @@
+name: lambda-alpha-ref-star
+depend: standard-library
+include: src
+flags: --rewriting
