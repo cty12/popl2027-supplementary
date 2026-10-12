@@ -6,6 +6,8 @@ _build/
 compiled/
 
 # Packaged artifact
+*.sha256
+*.tar.gz
 *.zip
 
 # Editor and OS
