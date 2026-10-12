@@ -1,5 +1,5 @@
 # Supplementary Material for *Taming Scope Extrusion in Gradual Imperative Metaprogramming*
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23226492.svg)](https://doi.org/10.5281/zenodo.23226492)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23226491.svg)](https://doi.org/10.5281/zenodo.23226491)
 
 The supplementary material consists of three parts: the Appendix, the Agda proof
 scripts, a prototype implementation of LambdaAlphaRefStar and its static sister
@@ -44,7 +44,7 @@ Download the image from the [latest release][latest], load it, and run it:
 
 ```
 curl -fLO https://github.com/cty12/popl2027-supplementary/releases/latest/download/lambdaalpharefstar-amd64.tar.gz
-gunzip -c lambdaalpharefstar-amd64.tar.gz | docker load
+docker load -i lambdaalpharefstar-amd64.tar.gz
 docker run --rm lambdaalpharefstar
 ```
 
@@ -73,13 +73,21 @@ access, so a slow connection will take longer.
   `Interpreter/examples/` and `Interpreter/sister-language/examples/`.
 
 These Makefiles finish running in under a minute, because the image is built
-with the proofs already checked once, and ends with:
+with the proofs already checked once. Here is what the output should look like:
 
 ```
+make: Entering directory '/artifact/Theories'
+Checking all proofs ...
+/usr/bin/env agda src/LambdaAlphaRefStar/Theories/MainTheorems.agda
+make: Leaving directory '/artifact/Theories'
+make: Entering directory '/artifact/Interpreter'
+Running all examples ...
+/usr/bin/env racket test-examples.rkt
 52/52 tests succeeded (enable debug to see details)
+make: Leaving directory '/artifact/Interpreter'
 ```
 
-exiting with status 0. A failure in either half makes the command exit
+while exiting with status 0. A failure in either half makes the command exit
 with a non-zero code.
 
 To run just one Makefile, run either one of these:
