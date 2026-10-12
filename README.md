@@ -1,34 +1,44 @@
-# Supplementary Materials for LambdaAlphaRefStar
+# Supplementary Material for *Taming Scope Extrusion in Gradual Imperative Metaprogramming*
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23226492.svg)](https://doi.org/10.5281/zenodo.23226492)
 
-The supplementary material consists of four parts: the Appendix, the Agda proof
-scripts, a prototype implementation of LambdaAlphaRefStar (and its static
-sister), and example programs of LambdaAlphaRefStar (and its static sister). We
-show where to find each of them below.
+The supplementary material consists of three parts: the Appendix, the Agda proof
+scripts, a prototype implementation of LambdaAlphaRefStar and its static sister
+language. We also provide example programs of LambdaAlphaRefStar and its static
+sister.
 
-## The Appendix
+For artifact evaluation, we provide a pre-built Docker image for evaluating the
+mechanized proofs and running the prototype on all examples. Please refer to the
+"POPL 2027 Artifact Evaluation" below. Thank you.
 
-The Appendix that supplements the main text of the paper is `Appendix.pdf`.
+## Repository Structure
 
-## The mechanized proofs of LambdaAlphaRefStar
+This repository is organized as follows.
+
+### The Appendix
+
+The Appendix that supplements the main text of the paper is `Appendix.pdf`. It
+includes a table (Table 2) that maps the on-paper lemmas and theorems to their
+Agda counterparts.
+
+### The mechanized proofs of LambdaAlphaRefStar
 
 The LambdaAlphaRefStar Agda proofs are in the `Theories/` directory. More
 information can be found in the `README.md ` file in that directory.
 
-## Prototype implementation and examples
+### Prototype implementation and examples
 
 The prototype Racket implementations of LambdaAlphaRefStar and the
 LambdaAlphaRef sister language, and their example programs are in the
 `Interpreter/` directory. To run the interpreter on those examples, please
 follow the instructions in `Interpreter/readme.md`.
 
-# POPL 2027 Artifact Evaluation
+## POPL 2027 Artifact Evaluation
 
 Everything is checked inside a Docker image that pins the toolchain this
 artifact was developed against: Agda 2.8.0 with standard library v2.3, and
 Racket v9.2 [cs]. Docker is the only prerequisite.
 
-## Option 1: use the prebuilt image (Fast and Recommended)
+### Option 1: use the prebuilt image (Fast and Recommended)
 
 Download the image from the [latest release][latest], load it, and run it:
 
@@ -40,7 +50,7 @@ docker run --rm lambdaalpharefstar
 
 [latest]: https://github.com/cty12/popl2027-supplementary/releases/latest
 
-## Option 2: build the image from this repository
+### Option 2: build the image from this repository
 
 ```
 docker build -t lambdaalpharefstar .
@@ -52,7 +62,8 @@ is spent type checking the proofs, installing Racket packages, and finally
 downloading Agda, the Agda standard library, and Racket. It needs network
 access, so a slow connection will take longer.
 
-## What the run does
+
+### What the run does
 
 `docker run` executes the two Makefiles described above:
 
@@ -78,12 +89,11 @@ docker run --rm lambdaalpharefstar make -C Theories
 docker run --rm lambdaalpharefstar make -C Interpreter
 ```
 
-## Notes
+### Caveats
 
-The released image is `linux/amd64`. On an Apple Silicon machine, add
-`--platform linux/amd64` to the `docker run` command to use emulation.
+- **Mac Users.** The released image is `linux/amd64`. On an Apple Silicon machine, add
+`--platform linux/amd64` to the `docker run** command to use emulation.
 
-To check the proofs or run the interpreter without Docker, follow
-`Theories/README.md` and `Interpreter/readme.md`, which list the toolchain
-versions each one needs.
-
+- **Checking the proofs and running the prototype manually.** To check the
+proofs or run the interpreter without Docker, follow `Theories/README.md` and
+`Interpreter/readme.md`, which list the toolchain versions each one needs.
